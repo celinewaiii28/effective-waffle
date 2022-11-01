@@ -59,7 +59,7 @@ best_face_distance = 1.0
 best_face_image = None
 
 # Loop over all the images we want to check for similar people
-for image_path in Path("people").glob("*.png"):
+for image_path in Path("people").glob("*.jpg"):
     # Load an image to check
     unknown_image = face_recognition.load_image_file(image_path)
 
@@ -77,5 +77,6 @@ for image_path in Path("people").glob("*.png"):
         best_face_image = unknown_image
 
 # Display the face image that we found to be the best match!
+print("best face is {}".format(best_face_image))
 pil_image = Image.fromarray(best_face_image)
 pil_image.show()
