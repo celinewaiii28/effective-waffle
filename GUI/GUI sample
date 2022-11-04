@@ -1,0 +1,18 @@
+from tkinter import *
+from tkinter import messagebox
+
+
+def button_pressed():
+    print("Kena Pressed!")
+    messagebox.showinfo( "SOLD OUT LIAO", "Eh sorry, puff is sold out!")  #popup message box
+
+main = Tk()  #main is a variable that store tkinter 
+main.title('Curry Puff')  
+
+title = Label(main, text="WELCOME TO MY CURRY PUFF SHOP!", font=(500))
+title.grid(row=0, column=0)  #widget position 
+
+popup = Button(main, text="Press Me", font=(100), command=button_pressed)
+popup.grid(row=1, column=0)
+
+main.mainloop()
