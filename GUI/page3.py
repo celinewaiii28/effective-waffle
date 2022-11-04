@@ -2,27 +2,28 @@ from tkinter import *
 
 ws = Tk()
 ws.geometry('400x300')
-ws.title('Page2')
-ws['bg']='#ffbf00'
+ws.title('Page3')
+# ws.attributes('-fullscreen',True)
+ws['bg']='#5d8a82'
 
 f = ("Times bold", 14)
- 
-def nextPage():
-    ws.destroy()
-    import page3
 
-def prevPage():
+def nextPage():
     ws.destroy()
     import page1
 
+def prevPage():
+    ws.destroy()
+    import page2
+    
 Label(
     ws,
-    text="This is Second page",
+    text="This is Third page",
     padx=20,
     pady=20,
     bg='#ffbf00',
     font=f
-    ).pack(expand=True, fill=BOTH)
+).pack(expand=True, fill=BOTH)
 
 Button(
     ws, 
@@ -36,5 +37,5 @@ Button(
     font=f,
     command=nextPage
     ).pack(fill=X, expand=TRUE, side=LEFT)
-
+    
 ws.mainloop()
