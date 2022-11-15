@@ -104,7 +104,7 @@ for image_path in Path("Characters").glob("*.png"):
         # Extract a copy of the actual face image itself so we can display it
         best_face_image = unknown_image
 # Display the face image that we found to be the best match!
-pil_image = Image.fromarray(best_face_image)
+# pil_image = Image.fromarray(best_face_image)
 # pil_image.show()
 
 

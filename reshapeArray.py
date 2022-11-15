@@ -6,8 +6,8 @@ imagehq = face_recognition.load_image_file("seventeendk_20.png")
 facehq =face_recognition.face_encodings(imagehq)
 # print(face1)
 
-imageam = face_recognition.load_image_file("miyeon_14.png")
-faceam =face_recognition.face_encodings(imageam)
+# imageam = face_recognition.load_image_file("miyeon_14.png")
+# faceam =face_recognition.face_encodings(imageam)
 
 imagenic = face_recognition.load_image_file("saved_img.png")
 facenic =face_recognition.face_encodings(imagenic)
