@@ -22,9 +22,9 @@ while True:
     
     
      #to draw a rectangle around the face
-        for(x, y, w, h) in faces:
-            text = "Face Detected" 
-            cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        # for(x, y, w, h) in faces:
+        #     text = "Face Detected" 
+        #     cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
         
         
         # display the text on the image
@@ -105,6 +105,6 @@ for image_path in Path("Characters").glob("*.png"):
         best_face_image = unknown_image
 # Display the face image that we found to be the best match!
 pil_image = Image.fromarray(best_face_image)
-pil_image.show()
+# pil_image.show()
 
 
