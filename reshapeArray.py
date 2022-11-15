@@ -22,8 +22,3 @@ print(result1)
 # array1 = np.array(result1[0])
 
 # print(array1)
-
-# countingg = np.array
-# print(countingg)
-# result2 = face_recognition.compare_faces(facenic, facehq, tolerance=0.6)
-# print(result2)

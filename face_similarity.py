@@ -2,11 +2,7 @@ import face_recognition
 import cv2
 from pathlib import Path
 from PIL import Image
-
 import cv2
-
-
-
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
 
