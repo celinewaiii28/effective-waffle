@@ -1,14 +1,29 @@
+import dlib
 import numpy as np 
 import face_recognition
 
-image = face_recognition.load_image_file("C:\Github\effective-waffle\Characters\Hareyquinn_09.png")
-face =face_recognition.face_encodings(image)
-print(face)
+imagehq = face_recognition.load_image_file("XagentC_21.png")
+facehq =face_recognition.face_encodings(imagehq)
+# print(face1)
 
-# array = np.array(
-#     [{'chin': [(1483, 772), (1480, 862), (1485, 954), (1494, 1041), (1525, 1125), (1588, 1194), (1671, 1249), (1763, 1293), (1850, 1307), (1931, 1292), (1993, 1240), (2042, 1181), (2077, 1109), (2102, 1030), (2124, 955), (2144, 876), (2146, 799)], 'left_eyebrow': [(1587, 647), (1645, 623), (1710, 628), (1768, 646), (1823, 675)], 'right_eyebrow': [(1946, 676), (1998, 653), (2050, 640), (2104, 639), (2144, 670)], 'nose_bridge': [(1892, 751), (1896, 809), (1900, 868), (1903, 926)], 'nose_tip': [(1834, 974), (1861, 982), (1885, 990), (1909, 987), (1930, 980)], 'left_eye': [(1640, 757), (1681, 723), (1734, 727), (1777, 770), (1727, 780), (1675, 778)], 'right_eye': [(1951, 779), (1995, 735), (2049, 735), (2083, 771), (2051, 793), (2000, 795)], 'top_lip': [(1736, 1102), (1790, 1062), (1842, 1044), (1873, 1054), (1901, 1049), (1941, 1071), (1972, 1105), (1952, 1105), (1899, 1087), (1870, 1085), (1839, 1083), (1756, 1100)], 'bottom_lip': [(1972, 1105), (1939, 1145), (1899, 1161), (1866, 1162), (1833, 1157), (1784, 1141), (1736, 1102), (1756, 1100), (1839, 1105), (1869, 1108), (1899, 1106), (1952, 1105)]}]
-# )
-# array.reshape()
+imageam = face_recognition.load_image_file("antman_00.png")
+faceam =face_recognition.face_encodings(imageam)
 
-# # print("Original array:\n", array)
-# print("Reshaped array:\n", array)
+imagenic = face_recognition.load_image_file("saved_img.png")
+facenic =face_recognition.face_encodings(imagenic)
+
+# print("Nic = ",facenic)
+# print("Antman = ", faceam)
+# print("HQ = ", facehq)
+
+result1 = face_recognition.compare_faces([faceam, facehq], facenic[0], tolerance=0.08)
+print(result1)
+
+# array1 = np.array(result1[0])
+
+# print(array1)
+
+# countingg = np.array
+# print(countingg)
+# result2 = face_recognition.compare_faces(facenic, facehq, tolerance=0.6)
+# print(result2)
