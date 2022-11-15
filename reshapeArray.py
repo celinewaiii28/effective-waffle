@@ -1,5 +1,3 @@
-import dlib
-import numpy as np 
 import face_recognition
 
 imagehq = face_recognition.load_image_file("seventeendk_20.png")
