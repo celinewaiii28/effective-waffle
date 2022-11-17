@@ -8,7 +8,7 @@ print(face1)
 imagehq = face_recognition.load_image_file("seventeendk_20.png")
 face2 =face_recognition.face_encodings(imagehq)
 print("Face 2")
-print(face2)
+print(face2[1])
 
 # # import required module
 # from pathlib import Path
