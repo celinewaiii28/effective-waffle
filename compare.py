@@ -1,3 +1,5 @@
+# this python file is to compare and show matching image. 
+
 import face_recognition
 from pathlib import Path
 from PIL import Image

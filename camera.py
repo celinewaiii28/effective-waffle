@@ -1,3 +1,5 @@
+# this python file to to capture and store img of the face
+
 import face_recognition
 import cv2
 from pathlib import Path

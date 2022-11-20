@@ -1,3 +1,5 @@
+# this python file is to pre encode the image folder and filter out wanted result 
+
 import face_recognition
 from pathlib import Path
 from PIL import Image
@@ -15,6 +17,8 @@ print(dict)
 
 
 buffer=[]; result=[] #to create a list to put in a list of list 
+# buffer[] is to store all result 
+# result[] is to store wanted result 
 
 for i in range(14):
     compare = face_recognition.compare_faces(['saved_img.png'], dict[0] , tolerance=0.03)
