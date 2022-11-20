@@ -19,7 +19,7 @@ face = face_recognition.face_encodings(imagee)
 
 buffer=[]; result=[] 
 # buffer[] is to store all results 
-# result[] is to store final result that we want 
+# result[] is to store final result that we want (True / False)
 
 # for i in range(14):
 #     convert = np.array(dict) # convert list of numpy array of list > numpy array of list 
@@ -34,7 +34,7 @@ for i in range(14):
     box = (convert.tolist())
     # result.append(box[0])
     
-    result = face_recognition.compare_faces(face, box, tolerance=0.03)
+result = face_recognition.compare_faces(face, box, tolerance=0.03)
 
 
 print(result)
