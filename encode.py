@@ -9,17 +9,17 @@ import numpy as np
 dict = []
 
 for i in range(4): #loop the file in the folder
-    fromfolder = face_recognition.load_image_file("kpoptestfolder/image00" + str() + ".png")
+    fromfolder = face_recognition.load_image_file("kpoptestfolder/image0" + str(i) + ".png")
     toencode =face_recognition.face_encodings(fromfolder)
     dict.append(toencode)
 
 buffer = []
-image = face_recognition.load_image_file('jennie_02.png')
+image = face_recognition.load_image_file('test.png')
 face = face_recognition.face_encodings(image)
 
 for i in range(4): 
-    compare = face_recognition.compare_faces(dict, face[0], tolerance=0.03)
-    buffer.append(compare[0])
+    compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+    buffer.append(compare)
 
 # print(buffer)
 
@@ -30,16 +30,26 @@ for i in range(4):
     # print(convert)
     box = (convert.tolist())
     # print(box)
-    result.append(box)
+    result.append(box[0])
 
 # print("result is {}".format(result))
 # print(result)
 
-count = 0 
+list = []
+# count = 0 
 for i in range(4): 
-  for x in result[i]: 
-    if x == True: 
-        count = count + 1
+   count = 0
+   for x in result[i]: 
+      if x == True: 
+         count = count + 1
+        #  print(count)
+   list.append(count)
+    
+print(list)
 
-print("True = " , count)
-print(type(count))
+maxindex = list.index(max(list))
+print("Position with maximum number of True in the list: ", maxindex)
+
+final = Image.open("kpoptestfolder/image0" + str(maxindex) + ".png")
+final.show()
+
