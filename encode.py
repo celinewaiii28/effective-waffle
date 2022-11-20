@@ -13,34 +13,33 @@ for i in range(4): #loop the file in the folder
     toencode =face_recognition.face_encodings(fromfolder)
     dict.append(toencode)
 
-# print(dict)
+buffer = []
+image = face_recognition.load_image_file('jennie_02.png')
+face = face_recognition.face_encodings(image)
 
-buffer=[]; result=[] #to create a list to put in a list of list 
-# buffer[] is to store all result 
-# result[] is to store wanted result 
+for i in range(4): 
+    compare = face_recognition.compare_faces(dict, face[0], tolerance=0.03)
+    buffer.append(compare[0])
+
+# print(buffer)
+
+result=[] #to create a list to put in a list of list 
 
 for i in range(4):
-    # buffer.append(dict) #a list of numpy array of list
-    convert = np.array(dict[i]) #numpy array of list
-    box = (convert.tolist()) #list
+    convert = np.array(buffer[i])
+    # print(convert)
+    box = (convert.tolist())
+    # print(box)
     result.append(box)
 
+# print("result is {}".format(result))
 # print(result)
-# print(type(result))
 
-for i in range(4):
-  saveimage = image = face_recognition.load_image_file('jennie_02.png') 
-  ensaveimg = face_recognition.face_encodings(saveimage) #encode the saved img
-  convert2 = np.array(ensaveimg)
-#  box2 = (convert2.tolist())
-  result1 = face_recognition.compare_faces(result, convert2[0], tolerance=0.03)
+count = 0 
+for i in range(4): 
+  for x in result[i]: 
+    if x == True: 
+        count = count + 1
 
-# print(result1)
-# print(type(result1))
-
-for i in range(4):
-    nparray = np.array(result1)
-    total = max(nparray)
-
-print(total)
-print(nparray)
+print("True = " , count)
+print(type(count))
