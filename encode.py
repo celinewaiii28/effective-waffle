@@ -54,4 +54,3 @@ print("Position with maximum number of True in the list: ", maxindex)
 
 final = Image.open("kpoptestfolder/image0" + str(maxindex) + ".png") #open img of the index with maximun value 
 final.show() #show image
-
