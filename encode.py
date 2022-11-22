@@ -8,18 +8,16 @@ import numpy as np
 
 dict = []
 
-for i in range(4): #loop the file in the folder
+for i in range(14): #loop the file in the folder
     fromfolder = face_recognition.load_image_file("kpoptestfolder/image0" + str(i) + ".png")
     toencode =face_recognition.face_encodings(fromfolder)
     dict.append(toencode)
 
-buffer = [] # this list is to put in the 128 array of compare faces encoding 
-
-image = face_recognition.load_image_file('test.png')
+buffer = []
+image = face_recognition.load_image_file('saved_img.png')
 face = face_recognition.face_encodings(image)
 
-# this loop is to compare_faces of the save_img.png to all files in img folder 
-for i in range(4):  
+for i in range(14): 
     compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
     buffer.append(compare)
 
@@ -27,8 +25,8 @@ for i in range(4):
 
 result=[] # this list is to store wanted result 
 
-for i in range(4):
-    convert = np.array(buffer[i])  # list of numpy array of list > numpy array of list 
+for i in range(14):
+    convert = np.array(buffer[i])
     # print(convert)
     box = (convert.tolist()) # numpy array of list > list 
     # print(box)
@@ -36,12 +34,13 @@ for i in range(4):
 
 # print("result is {}".format(result))
 # print(result)
+# print(compare)
 
-list = [] # this list is to store the count int 
-
-for i in range(4): 
-   count = 0  #loop count here so the count = 0 everytime it loop
-   for x in result[i]:  # this for loop is to count the number of true in each array 
+list = []
+# count = 0 
+for i in range(14): 
+   count = 0
+   for x in result[i]: 
       if x == True: 
          count = count + 1
         #  print("Type of count is ", type(count))
