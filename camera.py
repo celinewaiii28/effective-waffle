@@ -14,7 +14,7 @@ webcam = cv2.VideoCapture(0)
 while True:
         check, frame = webcam.read()
      #if there is no edge detection around the face, this text will pop up
-        text = "Face not in frame"
+        #text = "Face not in frame"
     
     # convert each frame from BGR to Grayscale
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -24,14 +24,14 @@ while True:
     
     
      #to draw a rectangle around the face
-        # for(x, y, w, h) in faces:
-        #     text = "Face Detected" 
-        #     cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        #for(x, y, w, h) in faces:
+             #text = "Face Detected" 
+             #cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
         
         
         # display the text on the image
-        print(text)
-        image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+        #print(text)
+        #image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
     
         cv2.imshow('Face Detection Capture', frame)
         try:
@@ -56,7 +56,7 @@ while True:
                 print("Resizing image to 28x28 scale...")
                 img_ = cv2.resize(gray,(28,28))
                 print("Resized...")
-                img_resized = cv2.imwrite(filename='saved_img-final.png', img=img_)
+                #img_resized = cv2.imwrite(filename='saved_img-final.png', img=img_)
                 print("Image saved!")
                 break
             elif key == ord('q'):
