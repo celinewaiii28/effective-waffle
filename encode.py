@@ -15,7 +15,7 @@ for i in range(4): #loop the file in the folder
 
 buffer = [] # this list is to put in the 128 array of compare faces encoding 
 
-image = face_recognition.load_image_file('test.png')
+image = face_recognition.load_image_file('saved_img.png')
 face = face_recognition.face_encodings(image)
 
 # this loop is to compare_faces of the save_img.png to all files in img folder 
