@@ -3,7 +3,11 @@
 import face_recognition
 from pathlib import Path
 from PIL import Image
-import numpy as np 
+import numpy as np
+
+from deepface import DeepFace
+import cv2
+import matplotlib.pyplot as plt 
 
 
 dict = []
@@ -54,3 +58,12 @@ print("Position with maximum number of True in the list: ", maxindex)
 
 final = Image.open("kpoptestfolder/image0" + str(maxindex) + ".png") #open img of the index with maximun value 
 final.show() #show image
+
+#Gender Detection of saved_img.png
+#actions ['age', 'gender', 'race', 'emotion']
+result = DeepFace.analyze(image, actions=['gender'], enforce_detection=False)
+print("Gender : ", result['gender'])
+
+#Age Detection of saved_img.pngx
+result = DeepFace.analyze(image, actions=['age'], enforce_detection=False)
+print("Age : ", result['age'])

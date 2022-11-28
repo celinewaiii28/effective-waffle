@@ -14,32 +14,32 @@ webcam = cv2.VideoCapture(0)
 while True:
         check, frame = webcam.read()
      #if there is no edge detection around the face, this text will pop up
-        #text = "Face not in frame"
+        text = "Face not in frame"
     
     # convert each frame from BGR to Grayscale
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
      
     # detect faces using Haar Cascade    
-        faces = face_cascade.detectMultiScale(gray, 1.3, 4)
+        faces = face_cascade.detectMultiScale(gray, 1.1, 4)
     
     
      #to draw a rectangle around the face
-        #for(x, y, w, h) in faces:
-             #text = "Face Detected" 
-             #cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        for(x, y, w, h) in faces:
+             text = "Face Detected" 
+             cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
         
         
         # display the text on the image
-        #print(text)
-        #image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+        print(text)
+        image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
     
-        cv2.imshow('Face Detection Capture', frame)
+        #cv2.imshow('Face Detection Capture', frame)
         try:
             
          
             print(check) #prints true as long as the webcam is running
             print(frame) #prints matrix values of each framecd 
-            #cv2.imshow("Capturing", frame)
+            cv2.imshow("Capturing", frame)
             key = cv2.waitKey(1)
             if key == ord('s'): 
                 cv2.imwrite(filename='saved_img.png', img=frame)
