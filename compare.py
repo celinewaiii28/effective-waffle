@@ -4,30 +4,49 @@ import face_recognition
 from pathlib import Path
 from PIL import Image
 import numpy as np 
+import json
 
 
-dict = []
+# dict = []
 
-for i in range(4): #loop the file in the folder
-    fromfolder = face_recognition.load_image_file("kpoptestfolder/image0" + str(i) + ".png")
-    toencode =face_recognition.face_encodings(fromfolder)
-    dict.append(toencode)
+# for i in range(32): #loop the file in the folder
+#     fromfolder = face_recognition.load_image_file("kpoptestfolder/image0" + str(i) + ".png")
+#     toencode = face_recognition.face_encodings(fromfolder)
+#     dict.append(toencode)
 
 buffer = [] # this list is to put in the 128 array of compare faces encoding 
 
 image = face_recognition.load_image_file('saved_img.png')
 face = face_recognition.face_encodings(image)
 
+# opening the file in read mode
+my_file = open("encoded.txt", "r")
+
+# reading the file
+data = my_file.read()
+
+# when newline ('\n') is seen.
+txttolist = json.loads(data)
+
+my_file.close()
+
+
 # this loop is to compare_faces of the save_img.png to all files in img folder 
-for i in range(4):  
-    compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+for i in range(32):  
+    compare = face_recognition.compare_faces([txttolist[i]], face[0], tolerance=0.08)
     buffer.append(compare)
 
-# print("buffer = ", buffer)
+
+# # this loop is to compare_faces of the save_img.png to all files in img folder 
+# for i in range(32):  
+#     compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+#     buffer.append(compare)
+
+# print("buffer = ", buffer
 
 result=[] # this list is to store wanted result 
 
-for i in range(4):
+for i in range(32):
     convert = np.array(buffer[i])  # list of numpy array of list > numpy array of list 
     # print(convert)
     box = (convert.tolist()) # numpy array of list > list 
@@ -39,7 +58,7 @@ for i in range(4):
 
 list = [] # this list is to store the count int 
 
-for i in range(4): 
+for i in range(32): 
    count = 0  #loop count here so the count = 0 everytime it loop
    for x in result[i]:  # this for loop is to count the number of true in each array 
       if x == True: 
