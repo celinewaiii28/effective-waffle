@@ -4,8 +4,7 @@ import face_recognition
 from pathlib import Path
 from PIL import Image
 import numpy as np 
-import json
-
+import ast
 
 # dict = []
 
@@ -26,14 +25,14 @@ my_file = open("encoded.txt", "r")
 data = my_file.read()
 
 # when newline ('\n') is seen.
-txttolist = json.loads(data)
+txt = ast.literal_eval(data)
 
 my_file.close()
 
 
 # this loop is to compare_faces of the save_img.png to all files in img folder 
 for i in range(32):  
-    compare = face_recognition.compare_faces([txttolist[i]], face[0], tolerance=0.08)
+    compare = face_recognition.compare_faces([txt[i]], face[0], tolerance=0.08)
     buffer.append(compare)
 
 
