@@ -25,6 +25,8 @@ for i in range(32):
     for j in range(128):
         lib[i][j] = float(dict[i][j])
 
+# print("Lib result")
+# print(lib)
 # print(lib[31])
 # print(lib)
 # print("\n\n\n")
@@ -39,7 +41,7 @@ for i in range(32):
 
 
 ####
-captureImage = face_recognition.load_image_file("saved_img.png")
+captureImage = face_recognition.load_image_file("test.png")
 captureEncode = face_recognition.face_encodings(captureImage)
 convert = np.array(captureEncode)
 buffer = (convert.tolist())
@@ -49,10 +51,17 @@ captureResult = buffer[0]
 # print(len(captureResult))
 ####
 
-#
-compare = []
-for i in range(32):
-    buffer = face_recognition.compare_faces(lib[i], captureResult, tolerance=0.6)
-    compare.append(buffer)
+print("Lib Result")
+print("{} and type is {}\n".format(lib[0], type(lib[0])))
 
-print(compare)
+print("captureEncode Result")
+print("{} and type is {}\n".format(captureEncode[0], type(captureEncode[0])))
+
+buffer = face_recognition.compare_faces([lib], captureEncode[0], tolerance=0.08)
+print(buffer)
+# compare = []
+# for i in range(32):
+#     buffer = face_recognition.compare_faces(lib[i], captureResult, tolerance=0.6)
+#     compare.append(buffer)
+
+# print(compare)
