@@ -1,4 +1,4 @@
-# this python file is to pre encode the image folder and filter out wanted result 
+# this python file is to save the pre encoded data to a txt file
 
 import face_recognition
 from pathlib import Path
@@ -12,12 +12,13 @@ import matplotlib.pyplot as plt
 
 dict = []
 
-for i in range(4): #loop the file in the folder
+for i in range(32): #loop the file in the folder
     fromfolder = face_recognition.load_image_file("kpoptestfolder/image0" + str(i) + ".png")
     toencode =face_recognition.face_encodings(fromfolder)
     dict.append(toencode)
 
-buffer = [] # this list is to put in the 128 array of compare faces encoding 
+with open('C:\Github\effective-waffle\encoded.txt', 'w') as fp: 
+    fp.write("%s\n" % dict)
 
 image = face_recognition.load_image_file('saved_img.png')
 face = face_recognition.face_encodings(image)
