@@ -4,7 +4,7 @@ import face_recognition
 from pathlib import Path
 from PIL import Image
 import numpy as np 
-import ast
+import test
 
 # dict = []
 
@@ -13,26 +13,28 @@ import ast
 #     toencode = face_recognition.face_encodings(fromfolder)
 #     dict.append(toencode)
 
+# print(dict)
+
 buffer = [] # this list is to put in the 128 array of compare faces encoding 
 
 image = face_recognition.load_image_file('saved_img.png')
 face = face_recognition.face_encodings(image)
 
-# opening the file in read mode
-my_file = open("encoded.txt", "r")
+# # opening the file in read mode
+# my_file = open("encoded.txt", "r")
 
-# reading the file
-data = my_file.read()
+# # reading the file
+# data = my_file.read()
 
-# when newline ('\n') is seen.
-txt = ast.literal_eval(data)
+# # when newline ('\n') is seen.
+# txt = ast.literal_eval(data)
 
-my_file.close()
+# my_file.close()
 
 
 # this loop is to compare_faces of the save_img.png to all files in img folder 
 for i in range(32):  
-    compare = face_recognition.compare_faces([txt[i]], face[0], tolerance=0.08)
+    compare = face_recognition.compare_faces([test[i]], face[0], tolerance=0.08)
     buffer.append(compare)
 
 
