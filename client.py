@@ -1,10 +1,28 @@
 import socket
+from camera import *
 
+host = '192.168.1.60'
+port = 6666
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-s.connect((socket.gethostname(), 1234))
+s.connect((host, port))
+
+while True:
+    message = "A"
+    s.send(message.encode('utf-8'))
+    print("Awaiting the reply...")
+    reply = s.recv( 1024 ).decode( 'utf-8' )
+    print("Received ", str(reply))
+
+    message = "B"
+    s.send(message.encode('utf-8'))
+    print("Awaiting the reply...")
+    reply = s.recv( 1024 ).decode( 'utf-8' )
+    print("Received ", str(reply))
+    s.close()
+    break
 
 
-msg = s.recv(1024)
-print(msg.decode("utf-8"))
+
+
 
 

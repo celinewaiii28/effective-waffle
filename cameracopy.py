@@ -5,44 +5,47 @@ import cv2
 from pathlib import Path
 from PIL import Image
 import cv2
-# import server
+import socket
+from threading import Thread
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
 
 key = cv2. waitKey(0)
 webcam = cv2.VideoCapture(1)
 
-
-while True:
+def server():
+    while True:
+        global data, frame
         check, frame = webcam.read()
-     #if there is no edge detection around the face, this text will pop up
-        #text = "Face not in frame"
-    
-    # convert each frame from BGR to Grayscale
+            
+            # convert each frame from BGR to Grayscale
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-     
-    # detect faces using Haar Cascade    
+            
+            # detect faces using Haar Cascade    
         faces = face_cascade.detectMultiScale(gray, 1.3, 4)
-    
-    
-     #to draw a rectangle around the face
-        #for(x, y, w, h) in faces:
-             #text = "Face Detected" 
-             #cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
-        
-     
-        # display the text on the image
-        #print(text)
-        #image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
-        capture = key == ord('s')
-        cv2.imshow('Face Detection Capture', frame)
+
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind((socket.gethostname(), 6666))
+        s.listen(2)
+            # Accept connections
+        client, address = s.accept()
+        print("Connected to", address)
+
+        data = client.recv( 1024 ).decode( 'utf-8' )
+        print("Received :", repr(data))
+
+
+def camera():
+    while True:
         try:
 
-            # print(check) #prints true as long as the webcam is running
-            # print(frame) #prints matrix values of each framecd 
-            #cv2.imshow("Capturing", frame)
             key = cv2.waitKey(1)
-            if capture: 
+
+            if (data == '0'):
+                cv2.imshow('Face Detection Capture', frame)
+                pass
+
+            elif (data == '2'): 
                 cv2.imwrite(filename='saved_img.png', img=frame)
                 webcam.release()
                 img_new = cv2.imread('saved_img.png', cv2.IMREAD_GRAYSCALE)
@@ -57,9 +60,10 @@ while True:
                 print("Resizing image to 28x28 scale...")
                 img_ = cv2.resize(gray,(28,28))
                 print("Resized...")
-                #img_resized = cv2.imwrite(filename='saved_img-final.png', img=img_)
+                img_resized = cv2.imwrite(filename='saved_img-final.png', img=img_)
                 print("Image saved!")
                 break
+
             elif key == ord('q'):
                 print("Turning off camera.")
                 webcam.release()
@@ -67,6 +71,7 @@ while True:
                 print("Program ended.")
                 cv2.destroyAllWindows()
                 break
+                
         except(KeyboardInterrupt):
             print("Turning off camera.")
             webcam.release()
@@ -75,6 +80,13 @@ while True:
             cv2.destroyAllWindows()
             break
 
+    Thread(target = server).start()
+    Thread(target= camera).start()
+
+               
+
+    
+    
 
 
 # # Load the image of the person we want to find similar people for
