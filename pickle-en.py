@@ -15,5 +15,5 @@ with open("dict", "wb") as fp:
 with open("dict", "rb") as fp: 
     encoded = pickle.load(fp)
 
-# print(encoded)
+print(encoded)
 print(type(encoded))
