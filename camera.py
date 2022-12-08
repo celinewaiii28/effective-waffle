@@ -5,18 +5,16 @@ import cv2
 from pathlib import Path
 from PIL import Image
 import cv2
-# import server
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
 
 key = cv2. waitKey(0)
-webcam = cv2.VideoCapture(1)
-
+webcam = cv2.VideoCapture(0)
 
 while True:
         check, frame = webcam.read()
      #if there is no edge detection around the face, this text will pop up
-        #text = "Face not in frame"
+        text = "Press s to take picture :)"
     
     # convert each frame from BGR to Grayscale
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -32,8 +30,9 @@ while True:
         
      
         # display the text on the image
-        #print(text)
-        #image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+        print(text)
+        image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 3, cv2.LINE_AA)
+
         capture = key == ord('s')
         cv2.imshow('Face Detection Capture', frame)
         try:

@@ -11,7 +11,7 @@ with open("dict", "rb") as fp:
 # print("\n")
 # print(type(dict))
 
-image = face_recognition.load_image_file('test.png')
+image = face_recognition.load_image_file('saved_img.png')
 face = face_recognition.face_encodings(image)
 
 buffer = []
@@ -38,7 +38,7 @@ for i in range(30):
 
 maxindex = list.index(max(list)) # get the position of the index in the list by maximum value 
 print("Position with maximum number of True in the list: ", maxindex)
-original = Image.open("test.png")
+original = Image.open("saved_img.png")
 original.show()
 final = Image.open("kpop/image0" + str(maxindex) + ".png") #open img of the index with maximun value 
 final.show() #show image
