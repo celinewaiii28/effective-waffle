@@ -1,6 +1,6 @@
+from tkinter import * 
 import face_recognition
 from pathlib import Path
-from tkinter import * 
 from PIL import ImageTk, Image
 import numpy as np 
 import pickle 
@@ -55,18 +55,16 @@ words.grid(row=0, column=0)
 w2 = Label(frame2, text="this is frame2")
 w2.grid(row=0, column=0)
 
-# original = Image.open("saved_img.png")
-# original.show()
+img = (Image.open("saved_img.png"))
+resize = img.resize((700,870))
+resize.save("saved_img400.png")
 
-original = ImageTk.PhotoImage(Image.open("saved_img.png"))
-showori = Label(frame1, image=original)
-showori.grid(row=0, column=0)
-
-# final = Image.open("kpop/image0" + str(maxindex) + ".png") #open img of the index with maximun value 
-# final.show() #show image
+original = ImageTk.PhotoImage(Image.open("saved_img400.png"))
+showresize = Label(frame1, image=original)
+showresize.grid(row=1, column=0)
 
 final = ImageTk.PhotoImage(Image.open("kpop/image0" + str(maxindex) + ".png")) #open img of the index with maximun value 
 showfinal = Label(frame2, image=final) #show image
-showfinal.grid(row=0, column=0)
+showfinal.grid(row=1, column=0)
 
 main.mainloop()
