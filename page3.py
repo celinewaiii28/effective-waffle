@@ -2,7 +2,7 @@ from tkinter import *
 
 def camera():
     import camera
-    import result
+    import new
 
 
 def topageone(): 
