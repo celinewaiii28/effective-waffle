@@ -1,4 +1,6 @@
 import socket
+import time 
+# import camera
 
 s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 s.bind((socket.gethostname(), 6666))
