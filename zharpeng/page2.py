@@ -1,12 +1,12 @@
 from tkinter import * 
 
 def topagethree(): 
-    main.destroy()
+    # main.destroy()
     import page3
 
 main = Tk()  #main is a variable that store tkinter 
 main.title('Face-Off') 
-# main.state('zoom')
+main.state('zoom')
 
 title = Label(main, text="Choose your theme", font=(500))
 title.grid(row=0, column=0)  #widget position 

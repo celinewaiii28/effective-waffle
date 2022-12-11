@@ -1,12 +1,12 @@
 from tkinter import * 
 
 def topagetwo(): 
-    main.destroy()
+    # main.destroy()
     import page2
 
 main = Tk()  #main is a variable that store tkinter 
 main.title('Face-Off') 
-# main.state('zoom')
+main.state('zoom')
 
 title = Label(main, text="WELCOME TO FACE OFF", font=(500))
 title.grid(row=0, column=0)  #widget position 
