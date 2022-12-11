@@ -49,11 +49,10 @@ frame1.grid(row=1, column=0)
 frame2 = Frame(main)
 frame2.grid(row=1, column=1)
 
-words = Label(frame1, text="this is frame1")
-words.grid(row=0, column=0)
-
-w2 = Label(frame2, text="this is frame2")
-w2.grid(row=0, column=0)
+# words = Label(frame1, text="this is frame1")
+# words.grid(row=0, column=0)
+# w2 = Label(frame2, text="this is frame2")
+# w2.grid(row=0, column=0)
 
 # original = Image.open("saved_img.png")
 # original.show()
