@@ -9,7 +9,7 @@ import cv2
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
 
 key = cv2. waitKey(0)
-webcam = cv2.VideoCapture(0)
+webcam = cv2.VideoCapture(1)
 
 while True:
         check, frame = webcam.read()
