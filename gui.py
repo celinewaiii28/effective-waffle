@@ -1,20 +1,11 @@
 from tkinter import * 
 import tkinter as tk
 from tkinter import ttk
-import tkinter.font as font
 import sys
 import os
-# import new
 
-def restart():
-    """Restarts the current program.
-    Note: this function does not return. Any cleanup action (like
-    saving data) must be done before calling this function."""
-    python = sys.executable
-    os.execl(python, python, * sys.argv)
 
 LARGEFONT =("Verdana", 35)
-BTNFONT =('Helvetica', 16)
 
 class tkinterApp(tk.Tk):
 	
@@ -105,8 +96,7 @@ class Page1(tk.Frame):
 		# button2.grid(row = 3, column = 0, padx = 10, pady = 10)
 
 
-def takepic():
-    import camera
+
 
 # third window frame page2 / camera
 class Page2(tk.Frame):
@@ -132,7 +122,6 @@ class Page2(tk.Frame):
 
 def showresult():
 	import new
-	new.guiResult()
 
 class Page3(tk.Frame):
 	def __init__(self, parent, controller):
@@ -145,9 +134,9 @@ class Page3(tk.Frame):
 		button1.grid(row = 1, column = 1, padx = 60, pady = 10)
 		button1.grid(row = 1, column = 0, padx = 60, pady = 10)
 
-		## button to restart program
+		## button to show page1
 		button2 = ttk.Button(self, text ="Restart",
-		command = lambda : restart())
+		command = lambda : controller.show_frame(StartPage))
 		button2.grid(row = 2, column = 0, padx = 20, pady = 10)
 
 # Driver Code
