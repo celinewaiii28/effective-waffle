@@ -1,7 +1,10 @@
+from tkinter import * 
 import tkinter as tk
 from tkinter import ttk
+import tkinter.font as font
 import sys
 import os
+# import new
 
 def restart():
     """Restarts the current program.
@@ -11,6 +14,7 @@ def restart():
     os.execl(python, python, * sys.argv)
 
 LARGEFONT =("Verdana", 35)
+BTNFONT =('Helvetica', 16)
 
 class tkinterApp(tk.Tk):
 	
@@ -128,6 +132,7 @@ class Page2(tk.Frame):
 
 def showresult():
 	import new
+	new.guiResult()
 
 class Page3(tk.Frame):
 	def __init__(self, parent, controller):
@@ -147,5 +152,5 @@ class Page3(tk.Frame):
 
 # Driver Code
 app = tkinterApp()
-app.attributes('-fullscreen', True)
+# app.attributes('-fullscreen', True)
 app.mainloop()
