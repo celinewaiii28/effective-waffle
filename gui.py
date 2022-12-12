@@ -32,8 +32,7 @@ class tkinterApp(tk.Tk):
 			# startpage, page1, page2 respectively with
 			# for loop
 			self.frames[F] = frame
-
-			frame.grid(row = 0, column = 0, sticky ="nsew")
+			frame.grid(row = 0, column = 0) #sticky ="nsew"
 
 		self.show_frame(StartPage)
 
@@ -107,12 +106,10 @@ class Page2(tk.Frame):
 		command = lambda : [takepic(), controller.show_frame(Page3)])
 		button1.grid(row = 1, column = 0, padx = 10, pady = 10)
 
-		# ## button to show frame 2 with text layout2
 		# button2 = ttk.Button(self, text ="Page 2",
 		# command = lambda : controller.show_frame(Page2))
 		# button2.grid(row = 2, column = 0, padx = 10, pady = 10)
 
-        # ## button to show frame 2 with text layout2
 		# button2 = ttk.Button(self, text ="Page 3",
 		# command = lambda : controller.show_frame(Page3))
 		# button2.grid(row = 3, column = 0, padx = 10, pady = 10)
@@ -124,12 +121,18 @@ class Page3(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text ="Show my result", font = LARGEFONT)
-		label.grid(row = 0, column = 4, padx = 10, pady = 10)
+		label.grid(row = 0, column = 0, padx = 10, pady = 10)
 
 		button1 = ttk.Button(self, text ="Result",
 		command = lambda : showresult())
-		button1.grid(row = 1, column = 1, padx = 10, pady = 10)
+		button1.grid(row = 1, column = 0, padx = 10, pady = 10)
+
+		## button to show page1
+		button2 = ttk.Button(self, text ="Restart",
+		command = lambda : controller.show_frame(StartPage))
+		button2.grid(row = 2, column = 0, padx = 10, pady = 10)
 
 # Driver Code
 app = tkinterApp()
+app.attributes('-fullscreen', True)
 app.mainloop()
