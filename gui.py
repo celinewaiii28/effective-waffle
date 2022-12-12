@@ -1,6 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
+import sys
+import os
 
+def restart():
+    """Restarts the current program.
+    Note: this function does not return. Any cleanup action (like
+    saving data) must be done before calling this function."""
+    python = sys.executable
+    os.execl(python, python, * sys.argv)
 
 LARGEFONT =("Verdana", 35)
 
@@ -132,9 +140,9 @@ class Page3(tk.Frame):
 		button1.grid(row = 1, column = 1, padx = 60, pady = 10)
 		button1.grid(row = 1, column = 0, padx = 60, pady = 10)
 
-		## button to show page1
+		## button to restart program
 		button2 = ttk.Button(self, text ="Restart",
-		command = lambda : controller.show_frame(StartPage))
+		command = lambda : restart())
 		button2.grid(row = 2, column = 0, padx = 20, pady = 10)
 
 # Driver Code
