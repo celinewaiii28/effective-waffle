@@ -32,7 +32,8 @@ class tkinterApp(tk.Tk):
 			# startpage, page1, page2 respectively with
 			# for loop
 			self.frames[F] = frame
-			frame.grid(row = 0, column = 0) #sticky ="nsew"
+
+			frame.grid(row = 0, column = 0)
 
 		self.show_frame(StartPage)
 
@@ -49,11 +50,11 @@ class StartPage(tk.Frame):
 		
 		# label of frame Layout 2
 		label = ttk.Label(self, text ="Welcome to FACE-OFF!", font = LARGEFONT)
-		label.grid(row = 0, column = 0, padx = 10, pady = 10)
+		label.grid(row = 0, column = 0, padx = 50, pady = 40)
 
 		button1 = ttk.Button(self, text ="Start",
 		command = lambda : controller.show_frame(Page1))
-		button1.grid(row = 1, column = 0, padx = 10, pady = 10)
+		button1.grid(row = 1, column = 0, padx = 20, pady = 30)
 
 		# ## button to show frame 2 with text layout2
 		# button2 = ttk.Button(self, text ="Page 2",
@@ -74,12 +75,13 @@ class Page1(tk.Frame):
 		tk.Frame.__init__(self, parent)
 
 		label = ttk.Label(self, text ="Choose Your Theme!", font = LARGEFONT)
-		label.grid(row = 0, column = 0, padx = 10, pady = 10)
+		label.grid(row = 0, column = 0, padx = 100, pady = 40)
 
 		button1 = ttk.Button(self, text ="Kpop",
 		command = lambda : controller.show_frame(Page2))
-		button1.grid(row = 1, column = 0, padx = 10, pady = 10)
+		button1.grid(row = 1, column = 0, padx = 20, pady = 10)
 
+		
 		# ## button to show frame 2 with text layout2
 		# button2 = ttk.Button(self, text ="Page 2",
 		# command = lambda : controller.show_frame(Page2))
@@ -100,16 +102,18 @@ class Page2(tk.Frame):
 		tk.Frame.__init__(self, parent)
 
 		label = ttk.Label(self, text ="Take a photo", font = LARGEFONT)
-		label.grid(row = 0, column = 0, padx = 10, pady = 10)
+		label.grid(row = 0, column = 0, padx = 100, pady = 50)
 
 		button1 = ttk.Button(self, text ="Camera",
 		command = lambda : [takepic(), controller.show_frame(Page3)])
 		button1.grid(row = 1, column = 0, padx = 10, pady = 10)
 
+		# ## button to show frame 2 with text layout2
 		# button2 = ttk.Button(self, text ="Page 2",
 		# command = lambda : controller.show_frame(Page2))
 		# button2.grid(row = 2, column = 0, padx = 10, pady = 10)
 
+        # ## button to show frame 2 with text layout2
 		# button2 = ttk.Button(self, text ="Page 3",
 		# command = lambda : controller.show_frame(Page3))
 		# button2.grid(row = 3, column = 0, padx = 10, pady = 10)
@@ -121,16 +125,17 @@ class Page3(tk.Frame):
 	def __init__(self, parent, controller):
 		tk.Frame.__init__(self, parent)
 		label = ttk.Label(self, text ="Show my result", font = LARGEFONT)
-		label.grid(row = 0, column = 0, padx = 10, pady = 10)
+		label.grid(row = 0, column = 0, padx = 100, pady = 40)
 
 		button1 = ttk.Button(self, text ="Result",
 		command = lambda : showresult())
-		button1.grid(row = 1, column = 0, padx = 10, pady = 10)
+		button1.grid(row = 1, column = 1, padx = 60, pady = 10)
+		button1.grid(row = 1, column = 0, padx = 60, pady = 10)
 
 		## button to show page1
 		button2 = ttk.Button(self, text ="Restart",
 		command = lambda : controller.show_frame(StartPage))
-		button2.grid(row = 2, column = 0, padx = 10, pady = 10)
+		button2.grid(row = 2, column = 0, padx = 20, pady = 10)
 
 # Driver Code
 app = tkinterApp()
