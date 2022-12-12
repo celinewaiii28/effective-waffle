@@ -1,8 +1,14 @@
 import tkinter as tk
 from tkinter import ttk
 
+def takepic():
+    import camera
 
-LARGEFONT =("Verdana", 35)
+def showresult():
+	import new
+
+
+LARGEFONT =("Arial Rounded MT Bold", 35)
 
 class tkinterApp(tk.Tk):
 	
@@ -93,8 +99,7 @@ class Page1(tk.Frame):
 		# button2.grid(row = 3, column = 0, padx = 10, pady = 10)
 
 
-def takepic():
-    import camera
+
 
 # third window frame page2 / camera
 class Page2(tk.Frame):
@@ -118,8 +123,7 @@ class Page2(tk.Frame):
 		# command = lambda : controller.show_frame(Page3))
 		# button2.grid(row = 3, column = 0, padx = 10, pady = 10)
 
-def showresult():
-	import new
+
 
 class Page3(tk.Frame):
 	def __init__(self, parent, controller):
