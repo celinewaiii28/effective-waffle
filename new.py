@@ -43,9 +43,13 @@ def guiResult():
     print("list is {}".format(list))
     print(maxindex)
 
-    resultImage = Image.open("kpop/image0" + str(maxindex) + ".png")
-    resultImage.show()
+    # resultImage = Image.open("kpop/image0" + str(maxindex) + ".png")
+    # resultImage.show()
 
+    pictaken = Image.open("saved_img.png")
 
-    # print(len(result))
-    # print("list is {}".format(list))
+    size = (200, 300)
+
+    output = pictaken.resize(size)
+
+    output.save('resized-saved-img.png')
