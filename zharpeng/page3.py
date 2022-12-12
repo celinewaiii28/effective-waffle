@@ -6,13 +6,13 @@ def camera():
 
 
 def topageone(): 
-    main.destroy()
+    # main.destroy()
     import page1
 
 
 main = Tk()  #main is a variable that store tkinter 
 main.title('Face-Off')  
-# main.state('zoom')
+main.state('zoom')
 
 title = Label(main, text="THIS IS PAGE 3", font=(500))
 title.grid(row=0, column=0)  #widget position 
