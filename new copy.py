@@ -1,9 +1,10 @@
-from tkinter import * 
 import face_recognition
 from pathlib import Path
+from tkinter import * 
 from PIL import ImageTk, Image
 import numpy as np 
 import pickle 
+    
 
 main = Tk()
 main.title("Face-Off")
@@ -17,6 +18,7 @@ with open("dict", "rb") as fp:
 
 image = face_recognition.load_image_file('saved_img.png')
 face = face_recognition.face_encodings(image)
+print("saved imaged encoding is {}".format(face))
 
 buffer = []
 for i in range(30):  
@@ -49,30 +51,23 @@ frame1.grid(row=1, column=0)
 frame2 = Frame(main)
 frame2.grid(row=1, column=1)
 
-words = Label(frame1, text="this is frame1")
-words.grid(row=0, column=0)
+# words = Label(frame1, text="this is frame1")
+# words.grid(row=0, column=0)
+# w2 = Label(frame2, text="this is frame2")
+# w2.grid(row=0, column=0)
 
-w2 = Label(frame2, text="this is frame2")
-w2.grid(row=0, column=0)
+# original = Image.open("saved_img.png")
+# original.show()
 
-img = (Image.open("saved_img.png"))
-resize = img.resize((700,700))
-resize.save("saved_img400.png")
+original = ImageTk.PhotoImage(Image.open("saved_img.png"))
+showori = Label(frame1, image=original)
+showori.grid(row=0, column=0)
 
-original = ImageTk.PhotoImage(Image.open("saved_img400.png"))
-showresize = Label(frame1, image=original)
-showresize.grid(row=1, column=0)
+# final = Image.open("kpop/image0" + str(maxindex) + ".png") #open img of the index with maximun value 
+# final.show() #show image
 
 final = ImageTk.PhotoImage(Image.open("kpop/image0" + str(maxindex) + ".png")) #open img of the index with maximun value 
 showfinal = Label(frame2, image=final) #show image
-showfinal.grid(row=1, column=0)
-
-# face = ImageTk.PhotoImage(Image.open("saved_img.png"))
-# showface = Label(frame1, image=face)
-# showface.grid(row=0, column=0)
-
-# final = ImageTk.PhotoImage(Image.open("kpop/image0" + str(maxindex) + ".png")) #open img of the index with maximun value 
-# showfinal = Label(frame2, image=final) #show image
-# showfinal.grid(row=0, column=0)
+showfinal.grid(row=0, column=0)
 
 main.mainloop()

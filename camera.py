@@ -19,7 +19,8 @@ while True:
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
      
     # detect faces using Haar Cascade    
-        faces = face_cascade.detectMultiScale(gray, 1.1, 4)
+        faces = face_cascade.detectMultiScale(gray, 1.3, 4)
+        mirror = cv2.flip(frame, 1)
     
     
      #to draw a rectangle around the face
@@ -32,7 +33,7 @@ while True:
         #print(text)
         #image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
         capture = key == ord('s')
-        cv2.imshow('Face Detection Capture', frame)
+        cv2.imshow('Face Detection Capture', mirror)
         try:
             
          
