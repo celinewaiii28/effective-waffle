@@ -108,5 +108,3 @@ while True:
 # # Display the face image that we found to be the best match!
 # pil_image = Image.fromarray(best_face_image)
 # pil_image.show()
-
-
