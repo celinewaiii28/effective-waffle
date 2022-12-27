@@ -39,7 +39,8 @@ class ImageLabel(tk.Label):
             self.after(self.delay, self.next_frame)
 
 root = tk.Tk()
+root.geometry("1920x1080")
 lbl = ImageLabel(root)
 lbl.pack()
-lbl.load('introscreen.gif')
+lbl.load('homePage.gif')
 root.mainloop()

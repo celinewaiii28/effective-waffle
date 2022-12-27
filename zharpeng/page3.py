@@ -1,4 +1,7 @@
 from tkinter import * 
+from playsound import playsound
+
+#playsound('C:\Users\Acer\Documents\GitHub\effective-waffle\kpop.mp3')
 
 def camera():
     import camera

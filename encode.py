@@ -17,13 +17,7 @@ for i in range(32): #loop the file in the folder
     toencode =face_recognition.face_encodings(fromfolder)
     dict.append(toencode)
 
-<<<<<<< Updated upstream
-with open('C:\Github\effective-waffle\encoded.txt', 'w') as fp: 
-    fp.write("%s\n" % dict)
-
-=======
 buffer = []
->>>>>>> Stashed changes
 image = face_recognition.load_image_file('saved_img.png')
 face = face_recognition.face_encodings(image)
 
