@@ -41,5 +41,5 @@ class ImageLabel(tk.Label):
 root = tk.Tk()
 lbl = ImageLabel(root)
 lbl.pack()
-lbl.load('introscreen.gif')
+lbl.load('homePage.gif')
 root.mainloop()

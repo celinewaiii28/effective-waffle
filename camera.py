@@ -21,8 +21,12 @@ while True:
      
     # detect faces using Haar Cascade    
         faces = face_cascade.detectMultiScale(gray, 1.3, 4)
-        mirror = cv2.flip(frame, 1)
-    
+        width = 500
+        height = 540
+        dim = (width, height)
+
+        frame1 = cv2.resize(frame, dim, interpolation=cv2.INTER_AREA)    
+        mirror= cv2.flip(frame1,1)    
     
      #to draw a rectangle around the face
         #for(x, y, w, h) in faces:
@@ -45,18 +49,18 @@ while True:
             if capture: 
                 cv2.imwrite(filename='saved_img.png', img=frame)
                 webcam.release()
-                img_new = cv2.imread('saved_img.png', cv2.IMREAD_GRAYSCALE)
-                img_new = cv2.imshow("Captured Image", img_new)
+                # img_new = cv2.imread('saved_img.png', cv2.IMREAD_GRAYSCALE)
+                # img_new = cv2.imshow("Captured Image", img_new)
                 cv2.waitKey(1650)
                 cv2.destroyAllWindows()
                 print("Processing image...")
-                img_ = cv2.imread('saved_img.png', cv2.IMREAD_ANYCOLOR)
-                print("Converting RGB image to grayscale...")
-                gray = cv2.cvtColor(img_, cv2.COLOR_BGR2GRAY)
-                print("Converted RGB image to grayscale...")
-                print("Resizing image to 28x28 scale...")
-                img_ = cv2.resize(gray,(28,28))
-                print("Resized...")
+                # img_ = cv2.imread('saved_img.png', cv2.IMREAD_ANYCOLOR)
+                # print("Converting RGB image to grayscale...")
+                # gray = cv2.cvtColor(img_, cv2.COLOR_BGR2GRAY)
+                # print("Converted RGB image to grayscale...")
+                # print("Resizing image to 28x28 scale...")
+                # img_ = cv2.resize(gray,(20,25))
+                # print("Resized...")
                 #img_resized = cv2.imwrite(filename='saved_img-final.png', img=img_)
                 print("Image saved!")
                 break

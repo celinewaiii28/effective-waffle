@@ -8,7 +8,7 @@ root = Tk()
 root.geometry("600x300")
 
 # Add image file
-bg = PhotoImage(file = "introscreen.gif")
+bg = PhotoImage(file = "homePage.gif")
 
 # Create Canvas
 canvas1 = Canvas( root, width = 400,
