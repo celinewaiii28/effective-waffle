@@ -8,8 +8,8 @@ def start():
     lbl.config(text=var)
 
     startbtn.destroy()
-    theme1.grid(row=1, column=0)
-    theme2.grid(row=1, column=1)
+    theme1.pack()
+    theme2.pack()
 
 def choose_theme(m):
     global lbl, thm 
@@ -19,8 +19,8 @@ def choose_theme(m):
 
     theme1.destroy()
     theme2.destroy()
-    gen1.grid(row=1, column=0)
-    gen2.grid(row=1, column=1)
+    gen1.pack()
+    gen2.pack()
 
 def choose_gender(m):
     global lbl, thm, gen
@@ -30,7 +30,7 @@ def choose_gender(m):
 
     gen1.destroy()
     gen2.destroy()
-    cam.grid(row=1, columnspan=2)
+    cam.pack()
 
 def takepic():
     import camera
@@ -39,12 +39,8 @@ def takepic():
     var = "Are you ready to see the result?"
     lbl.config(text=var)
 
-    # img = (Image.open("saved_img.png"))
-    # resize = img.resize((500,600))
-    # resize.save("resizedIMG.png")
-
     cam.destroy()
-    result.grid(row=1, columnspan=2)
+    result.pack()
 
 def result():
     global lbl, thm, gen, resultIMG
@@ -55,7 +51,7 @@ def result():
 
     face = ImageTk.PhotoImage(Image.open("resizedIMG.png"))
     showresized = Label(frame1, image=face)
-    showresized.grid(row=0, column=0)
+    showresized.pack()
 
     if thm == 0:
         if gen == 0:
@@ -63,8 +59,6 @@ def result():
             maxindex = encode.kfemale()
             resultIMG = ImageTk.PhotoImage(Image.open("image/kpopf/image0" + str(maxindex) + ".png"))
             showresult = Label(frame2, image=resultIMG)
-            # face = ImageTk.PhotoImage(Image.open("resizedIMG.png"))
-            # showresized = Label(frame1, image=face)
         else:
             var = "Theme is Kpop. Gender is Male"
             maxindex = encode.kmale()
@@ -84,46 +78,38 @@ def result():
 
     lbl.config(text=var)
 
-    # img = (Image.open("saved_img.png"))
-    # resize = img.resize((500,600))
-    # resize.save("resizedIMG.png")
-
-    # face = ImageTk.PhotoImage(Image.open("resizedIMG.png"))
-    # showresized = Label(frame1, image=face)
-    # showresized.grid(row=0, column=0)
-
-    showresult.grid(row=0, column=1) 
+    showresult.pack(side=LEFT)
 
 main = Tk()
 main.title("Face-Off")
+main.state('zoom')
 
+topframe = Frame(main)
+topframe.pack(side=TOP)
 frame1 = Frame(main)
-frame1.grid(row=2, column=0)
+frame1.pack(side=LEFT)
 frame2 = Frame(main)
-frame2.grid(row=2, column=1)
+frame2.pack(side=RIGHT)
 
 thm = 0; gen=0
 
 var = "Welcome to Face-Off"
 title = ("Arial", 15)
 
-lbl = Label(main, text=var, font=title)
-lbl.grid(row=0, columnspan=2)
+lbl = Label(topframe, text=var, font=title)
+lbl.pack()
 
-startbtn = Button(main, text="Start", command=start)
-startbtn.grid(row=1, columnspan=2)
+startbtn = Button(topframe, text="Start", command=start)
+startbtn.pack()
 
-theme1 = Button(main, text="Kpop", command=lambda m=0:choose_theme(m))
-theme2 = Button(main, text="Marvel & DC", command=lambda m=1:choose_theme(m))
+theme1 = Button(topframe, text="Kpop", command=lambda m=0:choose_theme(m))
+theme2 = Button(topframe, text="Marvel & DC", command=lambda m=1:choose_theme(m))
 
-gen1 = Button(main, text="Female", command=lambda m=0:choose_gender(m))
-gen2 = Button(main, text="Male", command=lambda m=1:choose_gender(m))
+gen1 = Button(topframe, text="Female", command=lambda m=0:choose_gender(m))
+gen2 = Button(topframe, text="Male", command=lambda m=1:choose_gender(m))
 
-cam = Button(main, text="Camera", command=takepic)
+cam = Button(topframe, text="Camera", command=takepic)
 
-result = Button(main, text="Result", command=result)
-
-# face = ImageTk.PhotoImage(Image.open("resizedIMG.png"))
-# showresized = Label(frame1, image=face)
+result = Button(topframe, text="Result", command=result)
 
 main.mainloop()
