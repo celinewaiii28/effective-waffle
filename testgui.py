@@ -6,6 +6,38 @@ import os
 from stupidArtnet import StupidArtnet
 import time
 import random
+import pygame
+
+def sound():
+  pygame.mixer.Sound.play(sound_effect)
+    
+def soundStop():
+  pygame.mixer.Sound.stop(sound_effect)
+    
+def kpop():
+  pygame.mixer.Sound.play(sound_kpop)
+     
+def kpopStop():
+  pygame.mixer.Sound.stop(sound_kpop)
+  pygame.mixer.Sound.play(sound_effect)
+     
+def hero():
+  pygame.mixer.Sound.play(sound_hero)
+  
+def heroStop():
+  pygame.mixer.Sound.stop(sound_hero)
+  pygame.mixer.Sound.play(sound_effect)
+  
+def camera():
+  pygame.mixer.Sound.play(sound_camera)
+     
+     
+pygame.init()
+sound_effect = pygame.mixer.Sound('bgmusic.wav')
+sound_kpop =  pygame.mixer.Sound('kpop.wav')
+sound_kpop.set_volume(0.4)
+sound_hero = pygame.mixer.Sound('superhero.wav')
+sound_camera = pygame.mixer.Sound('click.wav')
 
 target_ip = '192.168.1.80'		# typically in 2.x or 10.x range
 universe = 0										# see docs
@@ -130,8 +162,9 @@ class StartPage(tk.Frame):
 
 
     button1 = ttk.Button(self, text ="Start",
-    command = lambda : [controller.show_frame(Page1),lightup()])
+    command = lambda : [controller.show_frame(Page1),lightup(), sound()])
     button1.grid(row = 1, column = 0, padx = 150, pady = 30)
+    
 
 # second window frame page1 / choose theme
 class Page2(tk.Frame):
@@ -144,11 +177,11 @@ class Page2(tk.Frame):
     label.grid(row = 0, column = 0, padx = 150, pady = 20)
 
     button1 = ttk.Button(self, text ="Kpop",
-    command = lambda : [controller.show_frame(Page3)])
+    command = lambda : [controller.show_frame(Page3), kpop(), soundStop()])
     button1.grid(row = 1, column = 0, padx = 150, pady = 20)
 
     button2 = ttk.Button(self, text ="Marvel & DC",
-    command = lambda : controller.show_frame(Page4))
+    command = lambda : [controller.show_frame(Page4), hero(), soundStop()])
     button2.grid(row = 2, column = 0, padx = 150, pady = 20)
 
 # third window frame page2 / camera
@@ -160,7 +193,7 @@ class Page1(tk.Frame):
     label.grid(row = 0, column = 0, padx = 150, pady = 20)
 
     button1 = ttk.Button(self, text ="Camera",
-    command = lambda : [takepic(), controller.show_frame(Page2)])
+    command = lambda : [takepic(), camera(), controller.show_frame(Page2)])
     button1.grid(row = 1, column = 0, padx = 20, pady = 20)
 
     button2 = ttk.Button(self, text ="Back",
@@ -185,7 +218,7 @@ class Page3(tk.Frame):
     button2.grid(row = 2, column = 0, padx = 10, pady = 10)
 
     button3 = ttk.Button(self, text ="Back",
-    command = lambda : controller.show_frame(Page1))
+    command = lambda : [controller.show_frame(Page1), kpopStop()])
     button3.grid(row = 3, column = 0, padx = 10, pady = 10)
 
 # third window frame page4 / gender for hero
@@ -205,7 +238,7 @@ class Page4(tk.Frame):
     button2.grid(row = 2, column = 0, padx = 10, pady = 10)
 
     button3 = ttk.Button(self, text ="Back",
-    command = lambda : controller.show_frame(Page1))
+    command = lambda : [controller.show_frame(Page1), heroStop()])
     button3.grid(row = 3, column = 0, padx = 10, pady = 10)
   
 
