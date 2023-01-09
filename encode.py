@@ -14,7 +14,7 @@ def kfemale():
 
     buffer = []
     for i in range(13):
-        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.03)
         buffer.append(compare)
 
     result = []
@@ -51,7 +51,7 @@ def kmale():
 
     buffer = []
     for i in range(17):
-        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.03)
         buffer.append(compare)
 
     result = []
@@ -88,7 +88,7 @@ def hmale():
 
     buffer = []
     for i in range(20):
-        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.03)
         buffer.append(compare)
 
     result = []
@@ -125,7 +125,7 @@ def hfemale():
 
     buffer = []
     for i in range(10):
-        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.03)
         buffer.append(compare)
 
     result = []
