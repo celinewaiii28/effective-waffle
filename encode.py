@@ -1,68 +1,151 @@
-# this python file is to save the pre encoded data to a txt file
-
 import face_recognition
 from pathlib import Path
-from PIL import Image
-import numpy as np
+import numpy as np 
+import pickle 
 
-from deepface import DeepFace
-import cv2
-import matplotlib.pyplot as plt 
+def kfemale():
+    print("Loop here!")
 
-
-dict = []
-
-for i in range(32): #loop the file in the folder
-    fromfolder = face_recognition.load_image_file("kpoptestfolder/image0" + str(i) + ".png")
-    toencode =face_recognition.face_encodings(fromfolder)
-    dict.append(toencode)
-
-buffer = []
-image = face_recognition.load_image_file('saved_img.png')
-face = face_recognition.face_encodings(image)
-
-# this loop is to compare_faces of the save_img.png to all files in img folder 
-for i in range(4):  
-    compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
-    buffer.append(compare)
-
-# print("buffer = ", buffer)
-
-result=[] # this list is to store wanted result 
-
-for i in range(4):
-    convert = np.array(buffer[i])  # list of numpy array of list > numpy array of list 
-    # print(convert)
-    box = (convert.tolist()) # numpy array of list > list 
-    # print(box)
-    result.append(box[0])
-
-# print("result is {}".format(result))
-# print(result)
-
-list = [] # this list is to store the count int 
-
-for i in range(4): 
-   count = 0  #loop count here so the count = 0 everytime it loop
-   for x in result[i]:  # this for loop is to count the number of true in each array 
-      if x == True: 
-         count = count + 1
-        #  print("Type of count is ", type(count))
-   list.append(count)  #turn count(int) into a list 
+    with open("dict/kpopfemale", "rb") as fp:
+        dict = pickle.load(fp)
     
-print(list) # to check the number of True in different array 
+    image = face_recognition.load_image_file("resizedIMG.png")
+    face = face_recognition.face_encodings(image)
 
-maxindex = list.index(max(list)) # get the position of the index in the list by maximum value 
-print("Position with maximum number of True in the list: ", maxindex)
+    buffer = []
+    for i in range(13):
+        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+        buffer.append(compare)
 
-final = Image.open("kpoptestfolder/image0" + str(maxindex) + ".png") #open img of the index with maximun value 
-final.show() #show image
+    result = []
 
-#Gender Detection of saved_img.png
-#actions ['age', 'gender', 'race', 'emotion']
-result = DeepFace.analyze(image, actions=['gender'], enforce_detection=False)
-print("Gender : ", result['gender'])
+    for i in range(13):
+        convert = np.array(buffer[i])
+        box = (convert.tolist())
+        result.append(box[0])
+    
+    list = []
+    for i in range(13):
+        count = 0
+        for x in result[i]:
+            if x == True:
+                count = count + 1
+        list.append(int(count))
 
-#Age Detection of saved_img.pngx
-result = DeepFace.analyze(image, actions=['age'], enforce_detection=False)
-print("Age : ", result['age'])
+    global maxindex
+    maxindex = list.index(max(list))
+    print("list is {}".format(list))
+    print(maxindex)
+
+    return(maxindex)
+
+
+def kmale():
+    print("Loop here!")
+
+    with open("dict/kpopmale", "rb") as fp:
+        dict = pickle.load(fp)
+    
+    image = face_recognition.load_image_file("resizedIMG.png")
+    face = face_recognition.face_encodings(image)
+
+    buffer = []
+    for i in range(17):
+        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+        buffer.append(compare)
+
+    result = []
+
+    for i in range(17):
+        convert = np.array(buffer[i])
+        box = (convert.tolist())
+        result.append(box[0])
+    
+    list = []
+    for i in range(17):
+        count = 0
+        for x in result[i]:
+            if x == True:
+                count = count + 1
+        list.append(int(count))
+
+    global maxindex
+    maxindex = list.index(max(list))
+    print("list is {}".format(list))
+    print(maxindex)
+
+    return(maxindex)
+
+
+def hmale():
+    print("Loop here!")
+
+    with open("dict/heromale", "rb") as fp:
+        dict = pickle.load(fp)
+    
+    image = face_recognition.load_image_file("resizedIMG.png")
+    face = face_recognition.face_encodings(image)
+
+    buffer = []
+    for i in range(20):
+        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+        buffer.append(compare)
+
+    result = []
+
+    for i in range(20):
+        convert = np.array(buffer[i])
+        box = (convert.tolist())
+        result.append(box[0])
+    
+    list = []
+    for i in range(20):
+        count = 0
+        for x in result[i]:
+            if x == True:
+                count = count + 1
+        list.append(int(count))
+
+    global maxindex
+    maxindex = list.index(max(list))
+    print("list is {}".format(list))
+    print(maxindex)
+
+    return(maxindex)
+
+
+def hfemale():
+    print("Loop here!")
+
+    with open("dict/herofemale", "rb") as fp:
+        dict = pickle.load(fp)
+    
+    image = face_recognition.load_image_file("resizedIMG.png")
+    face = face_recognition.face_encodings(image)
+
+    buffer = []
+    for i in range(10):
+        compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.08)
+        buffer.append(compare)
+
+    result = []
+
+    for i in range(10):
+        convert = np.array(buffer[i])
+        box = (convert.tolist())
+        result.append(box[0])
+    
+    list = []
+    for i in range(10):
+        count = 0
+        for x in result[i]:
+            if x == True:
+                count = count + 1
+        list.append(int(count))
+
+    global maxindex
+    maxindex = list.index(max(list))
+    print("list is {}".format(list))
+    print(maxindex)
+
+    return(maxindex)

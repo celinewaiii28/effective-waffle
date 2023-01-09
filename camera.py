@@ -7,7 +7,13 @@ from PIL import Image
 import pygame
 
   
-# pygame.init() 
+pygame.init()
+
+take_photo = pygame.mixer.Sound('takephoto.wav')
+pygame.mixer.Sound.play(take_photo)
+
+  # pygame.mixer.Sound.stop(sound_hero)
+  # pygame.mixer.Sound.stop(sound_effect) 
 # sound_smile = pygame.mixer.Sound('smile.wav')
 # pygame.mixer.Sound.play(sound_smile)
 
@@ -20,7 +26,7 @@ webcam = cv2.VideoCapture(0)
 while True:
         check, frame = webcam.read()
      #if there is no edge detection around the face, this text will pop up
-        text = "Face not in frame"
+        # text = "Press s to take picture :)"
     
     # convert each frame from BGR to Grayscale
         gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
@@ -36,20 +42,20 @@ while True:
     
      #to draw a rectangle around the face
         #for(x, y, w, h) in faces:
-            # text = "Face Detected" 
-            # cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+             #text = "Face33 Detected" 
+             #cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
         
      
         # display the text on the image
-        #print(text)
-        #image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 2, cv2.LINE_AA)
+        # print(text)
+        # image = cv2.putText(frame, text, (50, 50), cv2.FONT_HERSHEY_SIMPLEX, 1, (255, 0, 0), 3, cv2.LINE_AA)
+
         capture = key == ord('s')
         cv2.imshow('Face Detection Capture', mirror)
         try:
-            
-         
-            print(check) #prints true as long as the webcam is running
-            print(frame) #prints matrix values of each framecd 
+
+            # print(check) #prints true as long as the webcam is running
+            # print(frame) #prints matrix values of each framecd 
             #cv2.imshow("Capturing", frame)
             key = cv2.waitKey(1)
             if capture: 
