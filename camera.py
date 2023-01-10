@@ -4,7 +4,19 @@ import face_recognition
 import cv2
 from pathlib import Path
 from PIL import Image
-import cv2
+import pygame
+
+  
+pygame.init()
+
+take_photo = pygame.mixer.Sound('takephoto.wav')
+pygame.mixer.Sound.play(take_photo)
+
+  # pygame.mixer.Sound.stop(sound_hero)
+  # pygame.mixer.Sound.stop(sound_effect) 
+# sound_smile = pygame.mixer.Sound('smile.wav')
+# pygame.mixer.Sound.play(sound_smile)
+
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
 
@@ -30,7 +42,7 @@ while True:
     
      #to draw a rectangle around the face
         #for(x, y, w, h) in faces:
-             #text = "Face Detected" 
+             #text = "Face33 Detected" 
              #cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
         
      
