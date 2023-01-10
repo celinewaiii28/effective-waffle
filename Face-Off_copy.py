@@ -84,7 +84,7 @@ def result():
     face = ImageTk.PhotoImage(Image.open("resizedIMG.png"))
     showresized = Label(frame1, image=face)
     showresized.pack()
-
+    
     if thm == 0:
         if gen == 0:
             var = "Theme is Kpop. Gender is Female"
@@ -194,17 +194,16 @@ lbl.pack()
 # bg1 = Label(main, image=themebg)
 # bg1.pack()
 
-#main.bind('<d>', lambda event : choose_theme(m))
+
+#KEYBOARD BINDING
+main.bind('<d>', lambda event : choose_theme())
+#main.bind('<a>', choose_theme)
 
 startbtn = Button(topframe, text="Start", font=btnfont, command=start)
 startbtn.pack()
 
-
 theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m))
-if thm == 0:
-    main.bind('<a>', choose_theme)
 theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
-    
 
 gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct()])
 gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct()])

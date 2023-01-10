@@ -9,8 +9,8 @@ import pygame
   
 pygame.init()
 
-take_photo = pygame.mixer.Sound('takephoto.wav')
-pygame.mixer.Sound.play(take_photo)
+#take_photo = pygame.mixer.Sound('takephoto.wav')
+#pygame.mixer.Sound.play(take_photo)
 
   # pygame.mixer.Sound.stop(sound_hero)
   # pygame.mixer.Sound.stop(sound_effect) 
