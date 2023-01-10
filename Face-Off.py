@@ -354,10 +354,88 @@ She officially debuted as a soloist on April 27th, 2022.
 
             if maxindex == 2: 
                 pygame.mixer.Sound.play(dc_sound)
+                grouptitle = "Harley Quinn"
+                content = """Actress: Margot Robbie
+                
+Harley Quinn is a character appearing in American comic books published by DC Comics. 
+Quinn's origin story features her as a former psychiatrist at Gotham City's Arkham Asylum named Dr. Harleen Quinzel
+who fell in love with the Joker, her patient, eventually becoming his accomplice and lover. """
             elif maxindex == 4: 
                 pygame.mixer.Sound.play(dc_sound)
+                grouptitle = "Wonder Women"
+                content = """Actress: Gal Gadot-Varsano
+                
+Wonder Woman's origin story (from Golden to Bronze Age) relates that she was sculpted from clay by her mother Queen Hippolyta 
+and was given a life as an Amazon, along with superhuman powers as gifts by the Greek gods. 
+In 2011, DC changed her background with the retcon that she is the biological daughter of Zeus and Hippolyta, 
+jointly raised by her mother and her aunts Antiope and Menalippe. """
+            elif maxindex == 0: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Black Widow"
+                content = """Actress: Natasha Romanoff
+                
+Black Widow is a fictional character appearing in American comic books published by Marvel Comics. 
+Created by editor and plotter Stan Lee, scripter Don Rico, and artist Don Heck, the character debuted in Tales of Suspense #52. 
+The character was introduced as a Russian spy, an antagonist of the superhero Iron Man. 
+"""
+            elif maxindex == 1: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Captian Marvel"
+                content = """Actress: Brie Larson
+                
+Captain Marvel is an extraterrestrial Kree warrior who finds herself caught in the middle of an intergalactic battle between her people and the Skrulls. 
+Living on Earth in 1995, she keeps having recurring memories of another life as U.S. Air Force pilot Carol Danvers. 
+With help from Nick Fury, Captain Marvel tries to uncover the secrets of her past 
+while harnessing her special superpowers to end the war with the evil Skrulls."""
+            elif maxindex == 3: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Scarlet Witch"
+                content = """Actress: Elizabeth Olsen
+                
+The Scarlet Witch flourished as an Avenger, despite her domineering and over-protective brother. 
+As she learned more about her powers and the role of a hero, 
+Wanda found herself attracted to the android Vision and the two soon declared their love for each other, 
+a situation Pietro found intolerable."""
+            elif maxindex == 5: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Invisible Women"
+                content = """Actress: Jessica Alba
+                
+The formidable heroine Invisible Woman (Susan Storm) uses her powers of invisibility to protect Earth 
+and acts as the leading maternal figure of the Fantastic Four. 
+Susan Storm Richards overcame losing her parents at a young age to become a motherly figure to her brother."""
+            elif maxindex == 6: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Jane Foster"
+                content = """Actress: Natalie Portman
+                
+For many years, Foster was a nurse, employed by Dr. Donald Blake, Thor's first mortal host, before becoming a doctor herself. 
+Foster is later revealed to be deemed worthy to wield Thor's hammer Mjolnir when the former is no longer able. 
+During this period, she adopts the mantle of Thor, and joins the Avengers."""
+            elif maxindex == 7: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Mystique"
+                content = """Actress: Jennifer Lawrence
+                
+As a master deceiver and infiltrator, Mystique made her way inside mutant-related organizations, 
+such as becoming the leader of Freedom Force and joining X-Factor, the Marauders, and even the X-Men. 
+During Mystique's trajectory, the death of Destiny had the most tragic impact in her life."""
+            elif maxindex == 8: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Lady Sif"
+                content = """Actress: Jaimie Alexander
+                
+Lady Sif is a fearsome Asgardian warrior and a good friend of Thor and the Warriors Three. 
+When Thor almost provoked a war with the Frost Giants and ended up powerless on Earth, 
+Sif and her friends disobeyed the orders of their new king Loki and went to Earth to save him."""
             else: 
                 pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Wasp"
+                content = """Actress: Evangeline Lilly 
+
+The Wasp is the partner of Hank Pym (also known as Ant-Man), and later became his wife. 
+She is usually depicted as having the ability to shrink to a height of several centimeters, 
+fly by means of insectoid wings, and fire bioelectric energy blasts."""
         else:
             var = "Theme is Marvel & DC. Gender is Male"
             maxindex = encode.hmale()
@@ -366,16 +444,96 @@ She officially debuted as a soloist on April 27th, 2022.
 
             if maxindex == 1: 
                 pygame.mixer.Sound.play(dc_sound)
+                grouptitle = "Aquaman"
+                content = """Actor: Jason Momoa
+                
+Once home to the most advanced civilization on Earth, the city of Atlantis is now an underwater kingdom ruled by the power-hungry King Orm. 
+With a vast army at his disposal, Orm plans to conquer the remaining oceanic people -- and then the surface world. 
+Standing in his way is Aquaman, Orm's half-human, half-Atlantean brother and true heir to the throne. 
+With help from royal counselor Vulko, Aquaman must retrieve the legendary Trident of Atlan and embrace his destiny as protector of the deep."""
             elif maxindex == 2: 
                 pygame.mixer.Sound.play(dc_sound)
+                grouptitle = "Batman"
+                content = """Actor: Ben Affleck
+                
+Batman ventures into Gotham City's underworld when a sadistic killer leaves behind a trail of cryptic clues. 
+As the evidence begins to lead closer to home and the scale of the perpetrator's plans become clear, he must forge new relationships, 
+unmask the culprit and bring justice to the abuse of power and corruption that has long plagued the metropolis."""
             elif maxindex == 6: 
                 pygame.mixer.Sound.play(dc_sound)
+                grouptitle = "Flash"
+                content = """Actor: Ezra Miller
+                
+After being struck by lightning and being affected by particle-accelerator explosion, 
+Barry Allen wakes up with incredible speed. He calls himself The Flash. 
+Now he is desperate to find the person that killed his mother when he was a child."""
             elif maxindex == 9: 
                 pygame.mixer.Sound.play(dc_sound)
+                grouptitle = "Peace Maker"
+                content = """Actor: John Cena
+                
+Peacemaker is an HBO Max-exclusive action comedy drama television series created by James Gunn and based on the DC Comics anti-hero of the same name. 
+Synopsis. Peacemaker is a live action series that follows Christopher Smith AKA Peacemaker, 
+an extremist murderer who believes he's on a quest for peace, killing anyone and everyone to achieve his ultimate goal."""
             elif maxindex == 12: 
                 pygame.mixer.Sound.play(dc_sound)
+                grouptitle = "Superman"
+                content = """Actor: Henry Cavill
+                
+Superman is the archetype of the superhero: he wears an outlandish costume, uses a codename, and fights evil with the aid of extraordinary abilities. 
+Although there are earlier characters who arguably fit this definition, it was Superman who popularized the superhero genre and established its conventions.
+Superman is a fictional character and one of the most famous and popular comic book superheroes of all time."""
+            elif maxindex == 0: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Antman"
+                content = """Actor: Paul Rudd
+                
+Forced out of his own company by former protégé Darren Cross, Dr. Hank Pym (Michael Douglas) recruits the talents of Scott Lang (Paul Rudd), 
+a master thief just released from prison. Lang becomes Ant-Man, trained by Pym and armed with a suit that allows him to shrink in size, 
+possess superhuman strength and control an army of ants. The miniature hero must use his new skills to prevent Cross, 
+also known as Yellowjacket, from perfecting the same technology and using it as a weapon for evil."""
+            elif maxindex == 3: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Winter Soldier"
+            elif maxindex == 4: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Captian American"
+            elif maxindex == 5: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Deadpool "
+            elif maxindex == 7: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Iron Man"
+            elif maxindex == 8: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Moon Knight"
+            elif maxindex == 10: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Spider Man"
+            elif maxindex == 11: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Star Lord"
+            elif maxindex == 13: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Thor"
+            elif maxindex == 14: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Wolderine"
+            elif maxindex == 15: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Agent Coulson"
+            elif maxindex == 16: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Hawkeye"
+            elif maxindex == 17: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Hulk"
+            elif maxindex == 18: 
+                pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Minster Fantastic"
             else: 
                 pygame.mixer.Sound.play(marvel_sound)
+                grouptitle = "Loki"
 
     lbl.config(text=var)
 
