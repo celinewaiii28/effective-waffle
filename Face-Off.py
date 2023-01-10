@@ -281,70 +281,255 @@ She officially debuted as a soloist on April 27th, 2022.
             if maxindex == 0: 
                 pygame.mixer.Sound.play(bts_sound)
                 grouptitle = "Big Hit Entertainment, BTS"
+                content = """Stage Name: Jungkook (정국)
+Full Name: Jeon Jung Kook (전정국)
+Position: Main Vocalist, Lead Dancer, Sub Rapper, Center, Maknae
+Birthday: September 1, 1997
+
+He was born in Busan, South Korea.
+He has an older brother, Jeon Junghyun.
+Education: Seoul School of Performing Arts; Global Cyber University
+Before joining the group he was a handball player.
+Hobbies: Drawing."""
 
             elif maxindex == 1: 
                 pygame.mixer.Sound.play(bts_sound)
                 grouptitle = "Big Hit Entertainment, BTS"
+                content = """Stage Name: J-Hope (제이홉)
+Full Name: Jung Ho Seok (정호석)
+Position: Main Dancer, Sub Rapper, Sub Vocalist
+Birthday: February 18, 1994
+
+He was born in Gwangju, South Korea.
+He has an older sister known as, Mejiwoo.
+His father is a high school literature teacher (teaching at Gwangju Global High School).
+Education: Gwangju Global High School; Global Cyber University
+Hobbies: Listening to music and window shopping."""
 
             elif maxindex == 2: 
                 pygame.mixer.Sound.play(bts_sound)
                 grouptitle = "Big Hit Entertainment, BTS"
+                content = """Stage Name: Jimin (지민)
+Full Name: Park Ji Min (박지민)
+Position: Main Dancer, Lead Vocalist
+Birthday: October 13, 1995
+
+He was born in Busan, South Korea.
+He has a younger brother, Park Jihyun.
+Education: Busan High School of Arts; Global Cyber University(Theatre and film major (bachelor))
+Jimin was the last member to join BTS.
+Hobbies: Relaxing whenever he gets a chance."""
 
             elif maxindex == 3: 
                 pygame.mixer.Sound.play(bts_sound)
                 grouptitle = "Big Hit Entertainment, BTS"
+                content = """Stage Name: Jin (진)
+Birth Name: Kim Seok Jin (김석진)
+Position: Sub Vocalist, Visual
+Birthday: December 4, 1992
+
+He was born in Anyang, Gyeonggi-do, but when he was about 1 year old his family moved to Gwacheon, Gyeonggi-do
+He has an older brother, Kim Seok Joong, 2 years older than him.
+Education: Konkuk University; Hanyang Cyber University (Films major (masters/graduate))
+He is the oldest member.
+Hobbies: Cooking, playing videogames on Nintendo devices, taking selcas."""
 
             elif maxindex == 6: 
                 pygame.mixer.Sound.play(bts_sound)
                 grouptitle = "Big Hit Entertainment, BTS"
+                content = """Stage Name: RM (아르엠), formerly Rap Monster (랩몬스터)
+Birth Name: Kim Nam Joon (김남준)
+Position: Leader, Main Rapper
+Birthday: September 12, 1994
+
+He was born in Seoul (Sangdo-dong) then he moved to Ilsan, Gyeonggi-do, South Korea when he was 4.
+Education: Apgujeong High School; Global Cyber University (Electronic engineering major (bachelor))
+In 2006 RM studied languages in New Zealand for 4 months. (Bon Voyage 4 Ep 1)
+He taught himself how to speak English and can speak it extremely well.
+BTS has been around since 2010, but they debuted in 2013 because of the constant member change up. RM is the only member left from the original line up."""
                 
             elif maxindex == 4: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: Mingyu (민규)
+Birth Name: Kim Min Gyu (김민규)
+Position: Rapper, Sub Vocalist, Visual, Face of the Group
+Birthday: April 6, 1997
+Sub-Unit: Hip-Hop Team
+
+He was born in Anyang-si, Gyeonggi-do, South Korea.
+He is the tallest member in the group.
+He ranks himself #1 visuals in Hip Hop unit.
+He became a trainee in 2011.
+He's in charge of hair styling in the group."""
+
+            
 
             elif maxindex == 5: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: Joshua (조슈아)
+Birth Name: Joshua Hong
+Korean Name: Hong Ji Soo (홍지수)
+Position: Lead Vocalist, Visual
+Birthday: December 30, 1995
+Sub-Unit: Vocal Team
+
+He was born in Los Angeles, California, United States.
+Joshua is fully Korean but was born and raised in America.
+He's an only child.
+He joined Pledis Entertainment and began his training in 2013.
+He said music is his life."""
 
             elif maxindex == 7: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content="""Stage Name: Wonwoo (원우)
+Birth Name: Jeon Won Woo (전원우)
+Position: Rapper, Sub Vocalist
+Birthday: July 17, 1996
+Sub-Unit: Hip-Hop Team
+
+He was born in Changwon, Gyeongsangnam-do, South Korea
+He became a trainee in 2011.
+He ranks himself 3rd or 4th most handsome in the group. He says S.Coups is the most handsome to him because he's very manly and has good leadership.
+He says he looks cold due to his sharp eyes but he's a warm person."""
 
             elif maxindex == 8: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: Hoshi (호시)
+Birth Name: Kwon Soon Young (권순영)
+Position: Performance Team Leader, Main Dancer, Lead Vocalist, Sub Rapper
+Birthday: June 15, 1996
+Sub-Unit: Performance Team (Leader)/ SVT Leaders/ BOOSEOKSOON
+
+He was born in Namyangju-si, Gyeonggi-do, South Korea.
+Hoshi's nickname is 10:10 because his eyes are the the same angles of ten minute ten hour on a clock.
+He choreographs most of Seventeen's routines.
+He became a trainee in 2011.
+He is a black belt in Taekwondo and was a Taekwondo champion when he was young."""
 
             elif maxindex == 9: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage name: S.Coups (에스쿱스)
+Birth name: Choi Seung Cheol (최승철)
+Position: Leader, Hip-Hop Team Leader, Rapper, Sub Vocalist
+Birthday: August 8, 1995
+Sub-Unit: Hip-Hop Team (Leader); SVT Leaders
+
+He was born in Daegu, South Korea.
+His stage name S.Coups comes from: (S) his name Sungcheol, (Coups) Coup d'état.
+He became a trainee in 2010.
+He's one of the original Pledis Boys."""
 
             elif maxindex == 10: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: DK / Dokyeom (도겸)
+Birth Name: Lee Seok Min (이석민)
+Position: Main Vocalist
+Birthday: February 18, 1997
+Sub-Unit: Vocal Team; BOOSEOKSOON (Leader)
+
+He was born in Suji-gu, Yongin-si, Gyeonggi-do, South Korea.
+Hansol, Seungkwan & Jisoo think he's the funniest member.
+He became a trainee in 2012."""
 
             elif maxindex == 11: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: Jeonghan (정한)
+Birth Name: Yoon Jeong Han (윤정한)
+Position: Lead Vocalist, Visual
+Birthday: October 4, 1995
+Sub-Unit: Vocal Team
+
+He was born in Hwaseong, South Korea.
+He has a younger sister.
+He ranks himself the third best visual in the group (after Vernon and Mingyu).
+He became a trainee in 2013"""
 
             elif maxindex == 12: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: Seungkwan (승관)
+Birth Name: Boo Seung Kwan (부승관)
+Position: Main Vocalist, Face of the Group
+Birthday: January 16, 1998
+Sub-Unit: Vocal Team; BOOSEOKSOON
+
+He was born in Busan, but he lived in Jeju since he was little.
+He has 2 older sisters: Boo Jinseol, and Boo Sojeong, the latter of whom debuted as a singer in Oct 2020.
+He is Seventeen's mood maker.
+He became a trainee in 2012.
+He was offered to join JYP but he rejected the offer."""
+
+            
 
             elif maxindex == 13: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: Vernon (버논)
+Birth Name: Hansol Vernon Chwe
+Korean Name: Choi Han Sol (최한솔)
+Position: Rapper, Sub Vocalist, Visual, Face of the Group
+Birthday: February 18, 1998
+Sub-Unit: Hip-Hop Team
+
+He was born in New York, United States.
+His family lives in Hongdae but he lives in Gangnam since Seventeen's dorm is located there.
+His father is Korean and his mother is American.
+He has a younger sister named Sofia, born in 2004.
+He became a trainee in 2012."""
 
             elif maxindex == 14: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: The8 (디에잇)
+Birth Name: Xu Ming Hao (徐明浩)
+Korean Name: Seo Myung Ho (서명호)
+Position: Lead Dancer, Sub Vocalist, Sub Rapper
+Birthday: November 7, 1997
+Sub-Unit: Performance Team
+
+e was born in Haicheng, Liaoning, China.
+He is in charge of b-boying in the performance team.
+He did b-boying in China for 6 years.
+He became a trainee in 2013.
+The meaning behind his stage name is that when the 8 is laid down, the infinite sign appears. Many Chinese people like number 8."""
 
             elif maxindex == 15: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: Dino (디노)
+Birth Name: Lee Chan (이찬)
+Position: Main Dancer, Sub Vocalist, Sub Rapper, Maknae
+Birthday: February 11, 1999
+Sub-Unit: Performance Team
+
+He was born in Iksan-si, Jeollakbu-do, South Korea.
+He explained that, in a family tree, his name is written as “Lee Joong Chan” but that his real name is actually Lee Chan. (During an interview for tenasia.co.kr)
+His parents are dancers. His father opened up a dance class and thought taught him how to dance.
+He became a trainee in 2012"""
 
             else: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
+                content = """Stage Name: Jun (준)
+Birth  Name: Wen Junhui (文俊辉)
+Korean Name: Moon Jun Hwi (문준휘)
+Position: Lead Dancer, Sub Vocalist
+Birthday: June 10, 1996
+Sub-Unit: Performance Team
+
+He was born in Shenzhen, Guangdong, China.
+He was a child actor in China.
+He speaks Mandarin, Cantonese, Korean.
+Many Chinese students love Kpop and that's how he became curious about it and moved to Korea.
+He became a trainee in 2012."""
+
     else:
         if gen == 0:
             var = "Theme is Marvel & DC. Gender is Female"
