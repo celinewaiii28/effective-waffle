@@ -6,6 +6,7 @@ import os
 from stupidArtnet import StupidArtnet
 import time
 import pygame
+import cv2
 
 target_ip = '192.168.1.80'
 universe = 0         
@@ -35,12 +36,13 @@ def start():
 
     pygame.mixer.Sound.play(bg_sound)
 
-def choose_theme(m):
+
+def choose_theme(event, m=''):
     global lbl, thm 
     thm = m
     var = "Select your gender. "
     lbl.config(text=var)
-
+        
     theme1.destroy()
     theme2.destroy()
     gen1.pack()
@@ -68,6 +70,9 @@ def takepic():
 
     pygame.mixer.Sound.stop(bg_sound)
     pygame.mixer.Sound.play(cam_sound)
+    
+def instruct():
+  pygame.mixer.Sound.play(instruct_sound)
 
 def result():
     global lbl, thm, gen, resultIMG, face, grouptitle, content
@@ -807,14 +812,25 @@ lbl.pack()
 # bg1 = Label(main, image=themebg)
 # bg1.pack()
 
+#main.bind('<d>', lambda event : choose_theme(m))
+
 startbtn = Button(topframe, text="Start", font=btnfont, command=start)
 startbtn.pack()
 
-theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m))
-theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
 
+theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m))
+if thm == 0:
+    main.bind('<a>', choose_theme)
+theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
+    
+
+<<<<<<< Updated upstream
 gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:choose_gender(m))
 gen2 = Button(topframe, text="Male", font=btnfont, command= lambda m=1:[choose_gender(m),lightup()])
+=======
+gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct()])
+gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct()])
+>>>>>>> Stashed changes
 
 cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()])
 
@@ -834,5 +850,7 @@ bts_sound = pygame.mixer.Sound("soundtrack/bts.wav")
 seven_sound = pygame.mixer.Sound("soundtrack/seventeen.wav")
 dc_sound = pygame.mixer.Sound("soundtrack/dc.wav")
 marvel_sound = pygame.mixer.Sound("soundtrack/marvel.wav")
+instruct_sound = pygame.mixer.Sound("soundtrack/instruct_camera.wav")
+
 
 main.mainloop()

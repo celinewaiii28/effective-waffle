@@ -4,6 +4,22 @@ import face_recognition
 import cv2
 from pathlib import Path
 from PIL import Image
+<<<<<<< Updated upstream
+=======
+import pygame
+
+  
+pygame.init()
+
+#take_photo = pygame.mixer.Sound('takephoto.wav')
+#pygame.mixer.Sound.play(take_photo)
+
+  # pygame.mixer.Sound.stop(sound_hero)
+  # pygame.mixer.Sound.stop(sound_effect) 
+# sound_smile = pygame.mixer.Sound('smile.wav')
+# pygame.mixer.Sound.play(sound_smile)
+
+>>>>>>> Stashed changes
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
 
