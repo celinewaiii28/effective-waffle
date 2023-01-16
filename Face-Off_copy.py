@@ -36,8 +36,7 @@ def start():
 
     pygame.mixer.Sound.play(bg_sound)
 
-
-def choose_theme(event, m=''):
+def choose_theme(event, m):
     global lbl, thm 
     thm = m
     var = "Choose your gender!"
@@ -47,6 +46,19 @@ def choose_theme(event, m=''):
     theme2.destroy()
     gen1.pack()
     gen2.pack()
+    
+def choose_themeBind(event, m):
+    global lbl, thm
+    #choose_theme(m)
+    thm = m
+    var = "Choose your gender!"
+    lbl.config(text=var)
+        
+    theme1.destroy()
+    theme2.destroy()
+    gen1.pack()
+    gen2.pack()
+     
 
 def choose_gender(m):
     global lbl, thm, gen
@@ -196,8 +208,8 @@ lbl.pack()
 
 
 #KEYBOARD BINDING
-main.bind('<d>', lambda event : choose_theme())
-#main.bind('<a>', choose_theme)
+#main.bind('<d>', lambda event : choose_themeBind())
+main.bind('<d>', lambda m=0:choose_themeBind(m))
 
 startbtn = Button(topframe, text="Start", font=btnfont, command=start)
 startbtn.pack()
