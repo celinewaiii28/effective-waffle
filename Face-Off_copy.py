@@ -36,7 +36,7 @@ def start():
 
     pygame.mixer.Sound.play(bg_sound)
 
-def choose_theme(event, m):
+def choose_theme(m):
     global lbl, thm 
     thm = m
     var = "Choose your gender!"
@@ -47,7 +47,7 @@ def choose_theme(event, m):
     gen1.pack()
     gen2.pack()
     
-def choose_themeBind(event, m):
+def choose_themeBind(m):
     global lbl, thm
     #choose_theme(m)
     thm = m
@@ -209,7 +209,18 @@ lbl.pack()
 
 #KEYBOARD BINDING
 #main.bind('<d>', lambda event : choose_themeBind())
-main.bind('<d>', lambda m=0:choose_themeBind(m))
+#KPOP
+main.bind('<a>', lambda m=0:choose_theme(m))
+#MARVEL
+main.bind('<d>', lambda m=1:choose_theme(m))
+
+#FEMALE
+main.bind('<a>', lambda m=0:[choose_gender(m),instruct()])
+#MALE
+main.bind('<d>', lambda m=1:[choose_gender(m),instruct()])
+#CAMERA
+main.bind('<s>', lambda : [takepic(), result()])
+
 
 startbtn = Button(topframe, text="Start", font=btnfont, command=start)
 startbtn.pack()

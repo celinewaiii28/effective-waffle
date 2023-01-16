@@ -17,7 +17,7 @@ def lightup():
 
     for x in range(20):
         for i in range(packet_size):
-            packet[i] = 35
+            packet[i] = 45
         a.set(packet)
         time.sleep(.1)
         a.start()
@@ -814,7 +814,7 @@ theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_t
 theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
 
 gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:choose_gender(m))
-gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:choose_gender(m))
+gen2 = Button(topframe, text="Male", font=btnfont, command= lambda m=1:[choose_gender(m),lightup()])
 
 cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()])
 
