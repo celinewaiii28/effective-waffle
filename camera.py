@@ -4,13 +4,18 @@ import face_recognition
 import cv2
 from pathlib import Path
 from PIL import Image
-import pygame
+# import pygame
 
   
-pygame.init()
+# pygame.init()
 
+<<<<<<< Updated upstream
 #take_photo = pygame.mixer.Sound('takephoto.wav')
 #pygame.mixer.Sound.play(take_photo)
+=======
+# take_photo = pygame.mixer.Sound('takephoto.wav')
+# pygame.mixer.Sound.play(take_photo)
+>>>>>>> Stashed changes
 
   # pygame.mixer.Sound.stop(sound_hero)
   # pygame.mixer.Sound.stop(sound_effect) 

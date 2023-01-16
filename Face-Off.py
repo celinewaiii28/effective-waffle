@@ -25,7 +25,7 @@ def lightup():
 
 def start():
     global lbl
-    var = "Choose Your Theme!"
+    var = "Choose a Theme!"
     lbl.config(text=var)
 
     startbtn.destroy()
@@ -38,7 +38,7 @@ def start():
 def choose_theme(m):
     global lbl, thm 
     thm = m
-    var = "Choose your gender!"
+    var = "Select your gender. "
     lbl.config(text=var)
 
     theme1.destroy()
@@ -49,7 +49,7 @@ def choose_theme(m):
 def choose_gender(m):
     global lbl, thm, gen
     gen = m  
-    var = "Take a photo of your face now"
+    var = "Press button to activate the Camera. "
     lbl.config(text=var)
 
     gen1.destroy()
@@ -83,13 +83,14 @@ def result():
 
     if thm == 0:
         if gen == 0:
-            var = "Theme is Kpop. Gender is Female"
+            var = "Do you know who is she? PRESS ME to read more!"
             maxindex = encode.kfemale()
             resultIMG = ImageTk.PhotoImage(Image.open("image/kpopf/image0" + str(maxindex) + ".png"))
             showresult = Label(frame2, image=resultIMG)
 
             if maxindex == 0: 
                 pygame.mixer.Sound.play(twice_sound)
+                pygame.mixer.Sound.fadeout(5000)
                 grouptitle = "JYP Entertainment, Twice"
                 content = """Stage Name: Mina (미나)
 Birth Name: Myoui Mina (名井 南)
@@ -202,7 +203,7 @@ Rosé ranked 66th on TC Candler “The 100 Most Beautiful Faces of 2019”.
 Rosé ranked 17th on TC Candler’s “The 100 Most Beautiful Faces of 2021”.
 Rosé debuted as a soloist on March 12, 2021, with first single album ‘-R-‘."""
             elif maxindex == 4: 
-                pygame.mixer.Sound.play(bts_sound)
+                pygame.mixer.Sound.play(gidle_sound)
                 grouptitle = "Cube Entertainment, (G)I-DLE"
                 content = """Stage Name: Soyeon (소연)
 Birth Name: Jeon So Yeon (전소연)
@@ -213,9 +214,10 @@ Birthday: August 26, 1998
 South Korean rapper, singer, songwriter, and record producer signed to Cube Entertainment. 
 First debuted as a solo-artist on November 5, 2017 
 with her digital single “JELLY” which was written, composed and arranged by herself.
-On May 2, 2018, she debuted as the leader and main rapper of the girl group (G)I-dle for whom she has written and produced most title songs."""
+On May 2, 2018, she debuted as the leader and main rapper of the girl group (G)I-dle 
+for whom she has written and produced most title songs."""
             elif maxindex == 5: 
-                pygame.mixer.Sound.play(bts_sound)
+                pygame.mixer.Sound.play(gidle_sound)
                 grouptitle = "Cube Entertainment, (G)I-DLE"
                 content = """Stage Name: Yuqi (우기)
 Birth Name: Song Yu Qi (宋雨琦/송우기)
@@ -230,7 +232,7 @@ Yuqi debuted as a soloist on May 13, 2021 with single album “A Page”.
 Yuqi has been nominated for “Most 100 Beautiful Faces of 2018″, representing China
 """
             elif maxindex == 6: 
-                pygame.mixer.Sound.play(bts_sound)
+                pygame.mixer.Sound.play(gidle_sound)
                 grouptitle = "Cube Entertainment, (G)I-DLE"
                 content = """Stage Name: Minnie (민니)
 Birth Name: Nicha Yontararak (ณิชา ยนตรรักษ์)
@@ -245,7 +247,7 @@ She was born into a musical family, with her mother, aunt and uncle playing the 
 Minnie has been playing piano since she was five and taking vocal lessons since she was seven years old.
 Her mom was her main influence for loving music. """
             elif maxindex == 8: 
-                pygame.mixer.Sound.play(bts_sound)
+                pygame.mixer.Sound.play(gidle_sound)
                 grouptitle = "Cube Entertainment, (G)I-DLE"
                 content = """Stage Name: Shuhua (슈화)
 Birth Name: Yeh Shuhua (葉舒華)
@@ -273,7 +275,7 @@ Supposed to debut with BlackPink.
 She officially debuted as a soloist on April 27th, 2022.
 """
         else:
-            var = "Theme is Kpop. Gender is Male"
+            var = "Do you know who is he? PRESS ME to read more! "
             maxindex = encode.kmale()
             resultIMG = ImageTk.PhotoImage(Image.open("image/kpopm/image0" + str(maxindex) + ".png"))
             showresult = Label(frame2, image=resultIMG)
@@ -346,7 +348,8 @@ He was born in Seoul (Sangdo-dong) then he moved to Ilsan, Gyeonggi-do, South Ko
 Education: Apgujeong High School; Global Cyber University (Electronic engineering major (bachelor))
 In 2006 RM studied languages in New Zealand for 4 months. (Bon Voyage 4 Ep 1)
 He taught himself how to speak English and can speak it extremely well.
-BTS has been around since 2010, but they debuted in 2013 because of the constant member change up. RM is the only member left from the original line up."""
+BTS has been around since 2010, but they debuted in 2013 because of the constant member change up. 
+RM is the only member left from the original line up."""
                 
             elif maxindex == 4: 
                 pygame.mixer.Sound.play(seven_sound)
@@ -379,7 +382,8 @@ Sub-Unit: Hip-Hop Team
 
 He was born in Changwon, Gyeongsangnam-do, South Korea
 He became a trainee in 2011.
-He ranks himself 3rd or 4th most handsome in the group. He says S.Coups is the most handsome to him because he's very manly and has good leadership.
+He ranks himself 3rd or 4th most handsome in the group. 
+He says S.Coups is the most handsome to him because he's very manly and has good leadership.
 He says he looks cold due to his sharp eyes but he's a warm person."""
 
             elif maxindex == 8: 
@@ -472,7 +476,8 @@ e was born in Haicheng, Liaoning, China.
 He is in charge of b-boying in the performance team.
 He did b-boying in China for 6 years.
 He became a trainee in 2013.
-The meaning behind his stage name is that when the 8 is laid down, the infinite sign appears. Many Chinese people like number 8."""
+The meaning behind his stage name is that when the 8 is laid down, 
+the infinite sign appears. Many Chinese people like number 8."""
 
             elif maxindex == 15: 
                 pygame.mixer.Sound.play(seven_sound)
@@ -484,7 +489,8 @@ Birthday: February 11, 1999
 Sub-Unit: Performance Team
 
 He was born in Iksan-si, Jeollakbu-do, South Korea.
-He explained that, in a family tree, his name is written as “Lee Joong Chan” but that his real name is actually Lee Chan. (During an interview for tenasia.co.kr)
+He explained that, in a family tree, his name is written as “Lee Joong Chan” but that 
+his real name is actually Lee Chan. (During an interview for tenasia.co.kr)
 His parents are dancers. His father opened up a dance class and thought taught him how to dance.
 He became a trainee in 2012"""
 
@@ -493,7 +499,7 @@ He became a trainee in 2012"""
                 grouptitle = "Pledis Entertainment, Seventeen"
     else:
         if gen == 0:
-            var = "Theme is Marvel & DC. Gender is Female"
+            var = "Do you know who is she? PRESS ME to read more! "
             maxindex = encode.hfemale()
             resultIMG = ImageTk.PhotoImage(Image.open("image/herof/image0" + str(maxindex) + ".png"))
             showresult = Label(frame2, image=resultIMG)
@@ -529,7 +535,8 @@ The character was introduced as a Russian spy, an antagonist of the superhero Ir
                 grouptitle = "Captian Marvel"
                 content = """Actress: Brie Larson
                 
-Captain Marvel is an extraterrestrial Kree warrior who finds herself caught in the middle of an intergalactic battle between her people and the Skrulls. 
+Captain Marvel is an extraterrestrial Kree warrior who finds herself caught in the 
+middle of an intergalactic battle between her people and the Skrulls. 
 Living on Earth in 1995, she keeps having recurring memories of another life as U.S. Air Force pilot Carol Danvers. 
 With help from Nick Fury, Captain Marvel tries to uncover the secrets of her past 
 while harnessing her special superpowers to end the war with the evil Skrulls."""
@@ -583,7 +590,7 @@ The Wasp is the partner of Hank Pym (also known as Ant-Man), and later became hi
 She is usually depicted as having the ability to shrink to a height of several centimeters, 
 fly by means of insectoid wings, and fire bioelectric energy blasts."""
         else:
-            var = "Theme is Marvel & DC. Gender is Male"
+            var = "Do you know who is he? PRESS ME to read more! "
             maxindex = encode.hmale()
             resultIMG = ImageTk.PhotoImage(Image.open("image/herom/image0" + str(maxindex) + ".png"))
             showresult = Label(frame2, image=resultIMG)
@@ -618,7 +625,8 @@ Now he is desperate to find the person that killed his mother when he was a chil
                 grouptitle = "Peace Maker"
                 content = """Actor: John Cena
                 
-Peacemaker is an HBO Max-exclusive action comedy drama television series created by James Gunn and based on the DC Comics anti-hero of the same name. 
+Peacemaker is an HBO Max-exclusive action comedy drama television series created by James Gunn 
+and based on the DC Comics anti-hero of the same name. 
 Synopsis. Peacemaker is a live action series that follows Christopher Smith AKA Peacemaker, 
 an extremist murderer who believes he's on a quest for peace, killing anyone and everyone to achieve his ultimate goal."""
             elif maxindex == 12: 
@@ -626,8 +634,10 @@ an extremist murderer who believes he's on a quest for peace, killing anyone and
                 grouptitle = "Superman"
                 content = """Actor: Henry Cavill
                 
-Superman is the archetype of the superhero: he wears an outlandish costume, uses a codename, and fights evil with the aid of extraordinary abilities. 
-Although there are earlier characters who arguably fit this definition, it was Superman who popularized the superhero genre and established its conventions.
+Superman is the archetype of the superhero: he wears an outlandish costume, uses a codename, 
+and fights evil with the aid of extraordinary abilities. 
+Although there are earlier characters who arguably fit this definition, it was Superman 
+who popularized the superhero genre and established its conventions.
 Superman is a fictional character and one of the most famous and popular comic book superheroes of all time."""
             elif maxindex == 0: 
                 pygame.mixer.Sound.play(marvel_sound)
@@ -641,45 +651,120 @@ also known as Yellowjacket, from perfecting the same technology and using it as 
             elif maxindex == 3: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Winter Soldier"
+                content = """Actor: Sebastian Stan
+                
+After the cataclysmic events in New York with his fellow Avengers, Steve Rogers, aka Captain America, 
+lives in the nation's capital as he tries to adjust to modern times. 
+An attack on a S.H.I.E.L.D. colleague throws Rogers into a web of intrigue that places the whole world at risk. 
+Joining forces with the Black Widow and a new ally, the Falcon, Rogers struggles to expose an ever-widening conspiracy, 
+but he and his team soon come up against an unexpected enemy."""
             elif maxindex == 4: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Captian American"
+                content = """Actor: Chris Evans
+                
+It is 1941 and the world is in the throes of war. Steve Rogers (Chris Evans) wants to do his part and join America's armed forces, 
+but the military rejects him because of his small stature. Finally, Steve gets his chance when he is accepted into an experimental program 
+that turns him into a supersoldier called Captain America. Joining forces with Bucky Barnes (Sebastian Stan) and Peggy Carter (Hayley Atwell), 
+Captain America leads the fight against the Nazi-backed HYDRA organization."""
             elif maxindex == 5: 
                 pygame.mixer.Sound.play(marvel_sound)
-                grouptitle = "Deadpool "
+                grouptitle = "Deadpool"
+                content = """Actor: Ryan Rodney Reynolds
+                
+Wade Wilson (Ryan Reynolds) is a former Special Forces operative who now works as a mercenary. 
+His world comes crashing down when evil scientist Ajax (Ed Skrein) tortures, disfigures and transforms him into Deadpool. 
+The rogue experiment leaves Deadpool with accelerated healing powers and a twisted sense of humor. 
+With help from mutant allies Colossus and Negasonic Teenage Warhead (Brianna Hildebrand), 
+Deadpool uses his new skills to hunt down the man who nearly destroyed his life."""
             elif maxindex == 7: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Iron Man"
+                content = """Actor: Robert Downey Jr.
+                
+A billionaire industrialist and genius inventor, Tony Stark (Robert Downey Jr.), is conducting weapons tests overseas, 
+but terrorists kidnap him to force him to build a devastating weapon. Instead, he builds an armored suit and upends his captors. 
+Returning to America, Stark refines the suit and uses it to combat crime and terrorism."""
             elif maxindex == 8: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Moon Knight"
+                content = """Actor: Oscar Isaac
+                
+It follows Marc Spector and Steven Grant, 
+two alters of a man with dissociative identity disorder (DID), 
+as they are drawn into a mystery involving Egyptian gods. """
             elif maxindex == 10: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Spider Man"
+                content = """Actor: Tom Holland
+                
+"Spider-Man" centers on student Peter Parker who, after being bitten by a genetically-altered spider, 
+gains superhuman strength and the spider-like ability to cling to any surface. He vows to use his abilities to fight crime, 
+coming to understand the words of his beloved Uncle Ben: "With great power comes great responsibility."""
             elif maxindex == 11: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Star Lord"
+                content = """Actor: Chris Pratt
+                
+Powers and abilities. Star-Lord is a master strategist and problem solver who is an expert in close-quarter combat, 
+various human and alien firearms, and battle techniques. He has extensive knowledge of various alien customs, societies, and cultures, 
+and considerable knowledge about cosmic abstracts, such as Oblivion."""
             elif maxindex == 13: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Thor"
+                content = """Actor: Chris Hemsworth
+                
+Imprisoned on the other side of the universe, 
+the mighty Thor finds himself in a deadly gladiatorial contest that pits him against the Hulk, 
+his former ally and fellow Avenger. Thor's quest for survival leads him in a race against time to prevent the 
+all-powerful Hela from destroying his home world and the Asgardian civilization."""
             elif maxindex == 14: 
                 pygame.mixer.Sound.play(marvel_sound)
-                grouptitle = "Wolderine"
+                grouptitle = "Wolverine"
+                content = """Actor: Hugh Jackman
+                
+He is a mutant who possesses animal-keen senses, enhanced physical capabilities, 
+a powerful regenerative ability known as a healing factor, and three retractable claws in each hand. 
+Wolverine has been depicted variously as a member of the X-Men, X-Force, Alpha Flight, the Fantastic Four, and the Avengers."""
             elif maxindex == 15: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Agent Coulson"
+                content = """Actor: Clark Gregg
+
+"Phil" Coulson was a highly decorated agent and former Director of S.H.I.E.L.D.. 
+Coulson was Nick Fury's right-hand man for many important missions and his liaison to the Avengers."""
             elif maxindex == 16: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Hawkeye"
+                content = """Actor: Jeremy Renner
+
+Clint BartonHawkeye. A master marksman and longtime friend of Black Widow, 
+Clint Barton serves as the Avengers' amazing archer. An expert marksman and fighter, 
+Clint Barton puts his talents to good use by working for S.H.I.E.L.D. as a special agent."""
             elif maxindex == 17: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Hulk"
+                content = """Actor: Mark Ruffalo
+                
+Bruce Banner lives a life caught between the soft-spoken scientist he's always been and the 
+uncontrollable green monster powered by his rage. Exposed to heavy doses of gamma radiation, 
+scientist Bruce Banner transforms into the mean, green rage machine called the Hulk."""
             elif maxindex == 18: 
                 pygame.mixer.Sound.play(marvel_sound)
-                grouptitle = "Minster Fantastic"
+                grouptitle = "Mister Fantastic"
+                content = """Actor: Ioan Gruffudd
+                
+Reed Richards is a scientist and inventor, better known as Mister Fantastic, 
+who has been considered the smartest man on Earth. He is a polymath with mastery of all the sciences including, 
+electrical, mechanical, aerospace engineering, electronics, chemistry, physics, biology and beyond."""
             else: 
                 pygame.mixer.Sound.play(marvel_sound)
                 grouptitle = "Loki"
+                content = """Actor: Thomas William Hiddleston
+                
+God of Mischief and brother to Thor, Loki's tricks and schemes wreak havoc across the realms. 
+Loki, Prince of Asgard, Odinson, rightful heir of Jotunheim, and God of Mischief, is burdened with glorious purpose. 
+His desire to be a king drives him to sow chaos in Asgard."""
 
     lbl.config(text=var)
 
