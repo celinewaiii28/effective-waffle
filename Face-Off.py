@@ -351,19 +351,6 @@ BTS has been around since 2010, but they debuted in 2013 because of the constant
             elif maxindex == 4: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
-                content = """Stage Name: Mingyu (민규)
-Birth Name: Kim Min Gyu (김민규)
-Position: Rapper, Sub Vocalist, Visual, Face of the Group
-Birthday: April 6, 1997
-Sub-Unit: Hip-Hop Team
-
-He was born in Anyang-si, Gyeonggi-do, South Korea.
-He is the tallest member in the group.
-He ranks himself #1 visuals in Hip Hop unit.
-He became a trainee in 2011.
-He's in charge of hair styling in the group."""
-
-            
 
             elif maxindex == 5: 
                 pygame.mixer.Sound.play(seven_sound)
@@ -454,19 +441,6 @@ He became a trainee in 2013"""
             elif maxindex == 12: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
-                content = """Stage Name: Seungkwan (승관)
-Birth Name: Boo Seung Kwan (부승관)
-Position: Main Vocalist, Face of the Group
-Birthday: January 16, 1998
-Sub-Unit: Vocal Team; BOOSEOKSOON
-
-He was born in Busan, but he lived in Jeju since he was little.
-He has 2 older sisters: Boo Jinseol, and Boo Sojeong, the latter of whom debuted as a singer in Oct 2020.
-He is Seventeen's mood maker.
-He became a trainee in 2012.
-He was offered to join JYP but he rejected the offer."""
-
-            
 
             elif maxindex == 13: 
                 pygame.mixer.Sound.play(seven_sound)
@@ -517,19 +491,6 @@ He became a trainee in 2012"""
             else: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
-                content = """Stage Name: Jun (준)
-Birth  Name: Wen Junhui (文俊辉)
-Korean Name: Moon Jun Hwi (문준휘)
-Position: Lead Dancer, Sub Vocalist
-Birthday: June 10, 1996
-Sub-Unit: Performance Team
-
-He was born in Shenzhen, Guangdong, China.
-He was a child actor in China.
-He speaks Mandarin, Cantonese, Korean.
-Many Chinese students love Kpop and that's how he became curious about it and moved to Korea.
-He became a trainee in 2012."""
-
     else:
         if gen == 0:
             var = "Theme is Marvel & DC. Gender is Female"
