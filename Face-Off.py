@@ -824,13 +824,8 @@ if thm == 0:
 theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
     
 
-<<<<<<< Updated upstream
-gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:choose_gender(m))
-gen2 = Button(topframe, text="Male", font=btnfont, command= lambda m=1:[choose_gender(m),lightup()])
-=======
-gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct()])
-gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct()])
->>>>>>> Stashed changes
+gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct(),lightup()])
+gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct(),lightup()])
 
 cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()])
 
