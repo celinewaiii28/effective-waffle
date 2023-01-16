@@ -10,8 +10,13 @@ from PIL import Image
 # pygame.init()
 
 <<<<<<< Updated upstream
+<<<<<<< Updated upstream
 #take_photo = pygame.mixer.Sound('takephoto.wav')
 #pygame.mixer.Sound.play(take_photo)
+=======
+# take_photo = pygame.mixer.Sound('takephoto.wav')
+# pygame.mixer.Sound.play(take_photo)
+>>>>>>> Stashed changes
 =======
 # take_photo = pygame.mixer.Sound('takephoto.wav')
 # pygame.mixer.Sound.play(take_photo)
