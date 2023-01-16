@@ -796,6 +796,7 @@ frame2.pack(side=LEFT)
 
 thm = 0; gen=0
 
+
 var = "Welcome to Face-Off"
 title = ("Fixedsys", 40)  #Courier
 btnfont = ("Courier", 20)  #Fixedsys
@@ -807,22 +808,22 @@ lbl.pack()
 # bg1 = Label(main, image=themebg)
 # bg1.pack()
 
-startbtn = Button(topframe, text="Start", font=btnfont, command=start)
+startbtn = Button(topframe, text="Start", font=btnfont, command=start, bg= 'aqua')
 startbtn.pack()
 
-theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m))
-theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
+theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m), bg= 'purple')
+theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m), bg='red')
 
-gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:choose_gender(m))
-gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:choose_gender(m))
+gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:choose_gender(m), bg='pink')
+gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:choose_gender(m), bg='yellow')
 
-cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()])
+cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()], bg='green')
 
 grouptitle = ""
 content = ""
-popup = Button(topframe, text="Press Me", font=btnfont, command=pop)
+popup = Button(topframe, text="Press Me", font=btnfont, command=pop, bg='#000fff000')
 
-restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart)
+restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart, bg='magenta')
 
 pygame.init()
 bg_sound = pygame.mixer.Sound("soundtrack/bgmusic.wav")
