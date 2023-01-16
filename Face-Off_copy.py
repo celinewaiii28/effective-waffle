@@ -219,7 +219,7 @@ main.bind('<a>', lambda m=0:[choose_gender(m),instruct()])
 #MALE
 main.bind('<d>', lambda m=1:[choose_gender(m),instruct()])
 #CAMERA
-main.bind('<s>', lambda : [takepic(), result()])
+#main.bind('<s>', lambda : [takepic(), result()])
 
 
 startbtn = Button(topframe, text="Start", font=btnfont, command=start)

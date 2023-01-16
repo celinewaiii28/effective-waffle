@@ -812,7 +812,22 @@ lbl.pack()
 # bg1 = Label(main, image=themebg)
 # bg1.pack()
 
-#main.bind('<d>', lambda event : choose_theme(m))
+
+#KEYBOARD BINDING
+#main.bind('<d>', lambda event : choose_themeBind())
+#KPOP
+main.bind('<a>', lambda m=0:choose_theme(m))
+#MARVEL
+main.bind('<d>', lambda m=1:choose_theme(m))
+
+#FEMALE
+main.bind('<a>', lambda m=0:[choose_gender(m),instruct()])
+#MALE
+main.bind('<d>', lambda m=1:[choose_gender(m),instruct()])
+
+#CAMERA
+main.bind('<s>', lambda : [takepic(), result()])
+
 
 startbtn = Button(topframe, text="Start", font=btnfont, command=start)
 startbtn.pack()
