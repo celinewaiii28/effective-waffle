@@ -37,7 +37,7 @@ def start():
     pygame.mixer.Sound.play(bg_sound)
 
 
-def choose_theme(event, m=''):
+def choose_theme(m):
     global lbl, thm 
     thm = m
     var = "Select your gender. "
@@ -821,34 +821,32 @@ main.bind('<a>', lambda m=0:choose_theme(m))
 main.bind('<d>', lambda m=1:choose_theme(m))
 
 #FEMALE
-main.bind('<a>', lambda m=0:[choose_gender(m),instruct()])
+main.bind('<f>', lambda m=0:[choose_gender(m),instruct()])
 #MALE
-main.bind('<d>', lambda m=1:[choose_gender(m),instruct()])
+main.bind('<g>', lambda m=1:[choose_gender(m),instruct()])
 
 #CAMERA
-main.bind('<s>', lambda : [takepic(), result()])
+main.bind('<s>', lambda : [takepic, result()])
 
 
-startbtn = Button(topframe, text="Start", font=btnfont, command=start)
+startbtn = Button(topframe, text="Start", font=btnfont, command=start, bg='#95bb72')
 startbtn.pack()
 
 
-theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m))
-if thm == 0:
-    main.bind('<a>', choose_theme)
-theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
+theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m), bg='#f74949')
+theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m), bg='#fedc56')
     
 
-gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct(),lightup()])
-gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct(),lightup()])
+gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct(),lightup()], bg='#f74949')
+gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct(),lightup()], bg='#fedc56')
 
-cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()])
+cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()], bg='#95bb72')
 
 grouptitle = ""
 content = ""
-popup = Button(topframe, text="Press Me", font=btnfont, command=pop)
+popup = Button(topframe, text="Press Me", font=btnfont, command=pop , bg='#fedc56')
 
-restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart)
+restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart , bg='#f74949')
 
 pygame.init()
 bg_sound = pygame.mixer.Sound("soundtrack/bgmusic.wav")
