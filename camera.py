@@ -4,8 +4,6 @@ import face_recognition
 import cv2
 from pathlib import Path
 from PIL import Image
-<<<<<<< Updated upstream
-=======
 import pygame
 
   
@@ -19,12 +17,11 @@ pygame.init()
 # sound_smile = pygame.mixer.Sound('smile.wav')
 # pygame.mixer.Sound.play(sound_smile)
 
->>>>>>> Stashed changes
 
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
 
 key = cv2. waitKey(0)
-webcam = cv2.VideoCapture(0)
+webcam = cv2.VideoCapture(1)
 
 while True:
         check, frame = webcam.read()
