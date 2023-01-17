@@ -7,7 +7,7 @@ from PIL import Image
 import pygame
 
   
-pygame.init()
+#pygame.init()
 
 #take_photo = pygame.mixer.Sound('takephoto.wav')
 #pygame.mixer.Sound.play(take_photo)
@@ -21,7 +21,7 @@ pygame.init()
 face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml') 
 
 key = cv2. waitKey(0)
-webcam = cv2.VideoCapture(1)
+webcam = cv2.VideoCapture(0)
 
 while True:
         check, frame = webcam.read()
