@@ -7,6 +7,7 @@ from stupidArtnet import StupidArtnet
 import time
 import pygame
 import cv2
+import speech_recognition as s
 
 target_ip = '192.168.1.80'
 universe = 0         
@@ -36,17 +37,32 @@ def start():
 
     pygame.mixer.Sound.play(bg_sound)
 
-
-def choose_theme(event, m=''):
+def choose_theme(m):
     global lbl, thm 
     thm = m
     var = "Choose your gender!"
     lbl.config(text=var)
-        
+       
     theme1.destroy()
     theme2.destroy()
     gen1.pack()
     gen2.pack()
+    
+def choose_themeBind(m):
+    global lbl, thm, x
+    thm = m
+    var = "Choose your gender!"
+    lbl.config(text=var)
+    
+    #if thm 
+    # if kpop_bind == 0:
+    #     print("hello u chose kpop")
+     
+    theme1.destroy()
+    theme2.destroy()
+    gen1.pack()
+    gen2.pack()
+     
 
 def choose_gender(m):
     global lbl, thm, gen
@@ -181,7 +197,7 @@ frame1.pack(side=LEFT)
 frame2 = Frame(ramdom)  # result photo
 frame2.pack(side=LEFT)
 
-thm = 0; gen=0
+thm = 0; gen = 0; 
 
 var = "Welcome to Face-Off"
 title = ("Fixedsys", 40)  #Courier
@@ -195,15 +211,33 @@ lbl.pack()
 # bg1.pack()
 
 
+
 #KEYBOARD BINDING
-main.bind('<d>', lambda event : choose_theme())
-#main.bind('<a>', choose_theme)
+#main.bind('<d>', lambda event : choose_themeBind())
+#KPOP
+
+
+kpop_bind = main.bind('<a>', lambda m=0:choose_themeBind(m))
+Kpop_bind = ()
+# if kpop_bind == TRUE:
+#      print("hello u chose kpop")
+
+#MARVEL
+hero_bind = main.bind('<d>', lambda m=1:choose_themeBind(m))
+
+#FEMALE
+female_bind = main.bind('<f>', lambda m=0:[choose_gender(m),instruct()])
+#MALE
+male_bind = main.bind('<g>', lambda m=1:[choose_gender(m),instruct()])
+#CAMERA
+#main.bind('<s>', lambda : [takepic(), result()])
+
 
 startbtn = Button(topframe, text="Start", font=btnfont, command=start)
 startbtn.pack()
 
-theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m))
-theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
+theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:[choose_theme(m), choose_themeBind(m)])
+theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:[choose_theme(m), choose_themeBind(m)])
 
 gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct()])
 gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct()])

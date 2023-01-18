@@ -6,6 +6,7 @@ import os
 from stupidArtnet import StupidArtnet
 import time
 import pygame
+import cv2
 
 target_ip = '192.168.1.80'
 universe = 0         
@@ -17,7 +18,7 @@ def lightup():
 
     for x in range(20):
         for i in range(packet_size):
-            packet[i] = 35
+            packet[i] = 45
         a.set(packet)
         time.sleep(.1)
         a.start()
@@ -35,12 +36,13 @@ def start():
 
     pygame.mixer.Sound.play(bg_sound)
 
+
 def choose_theme(m):
     global lbl, thm 
     thm = m
     var = "Select your gender. "
     lbl.config(text=var)
-
+        
     theme1.destroy()
     theme2.destroy()
     gen1.pack()
@@ -68,6 +70,9 @@ def takepic():
 
     pygame.mixer.Sound.stop(bg_sound)
     pygame.mixer.Sound.play(cam_sound)
+    
+def instruct():
+  pygame.mixer.Sound.play(instruct_sound)
 
 def result():
     global lbl, thm, gen, resultIMG, face, grouptitle, content
@@ -807,22 +812,41 @@ lbl.pack()
 # bg1 = Label(main, image=themebg)
 # bg1.pack()
 
-startbtn = Button(topframe, text="Start", font=btnfont, command=start)
+
+#KEYBOARD BINDING
+#main.bind('<d>', lambda event : choose_themeBind())
+#KPOP
+main.bind('<a>', lambda m=0:choose_theme(m))
+#MARVEL
+main.bind('<d>', lambda m=1:choose_theme(m))
+
+#FEMALE
+main.bind('<f>', lambda m=0:[choose_gender(m),instruct()])
+#MALE
+main.bind('<g>', lambda m=1:[choose_gender(m),instruct()])
+
+#CAMERA
+main.bind('<s>', lambda : [takepic, result()])
+
+
+startbtn = Button(topframe, text="Start", font=btnfont, command=start, bg='#95bb72')
 startbtn.pack()
 
-theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m))
-theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m))
 
-gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:choose_gender(m))
-gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:choose_gender(m))
+theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m), bg='#f74949')
+theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m), bg='#fedc56')
+    
 
-cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()])
+gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct(),lightup()], bg='#f74949')
+gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct(),lightup()], bg='#fedc56')
+
+cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()], bg='#95bb72')
 
 grouptitle = ""
 content = ""
-popup = Button(topframe, text="Press Me", font=btnfont, command=pop)
+popup = Button(topframe, text="Press Me", font=btnfont, command=pop , bg='#fedc56')
 
-restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart)
+restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart , bg='#f74949')
 
 pygame.init()
 bg_sound = pygame.mixer.Sound("soundtrack/bgmusic.wav")
@@ -834,5 +858,7 @@ bts_sound = pygame.mixer.Sound("soundtrack/bts.wav")
 seven_sound = pygame.mixer.Sound("soundtrack/seventeen.wav")
 dc_sound = pygame.mixer.Sound("soundtrack/dc.wav")
 marvel_sound = pygame.mixer.Sound("soundtrack/marvel.wav")
+instruct_sound = pygame.mixer.Sound("soundtrack/instruct_camera.wav")
+
 
 main.mainloop()
