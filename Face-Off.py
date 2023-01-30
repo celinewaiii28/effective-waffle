@@ -502,7 +502,7 @@ He became a trainee in 2012"""
             else: 
                 pygame.mixer.Sound.play(seven_sound)
                 grouptitle = "Pledis Entertainment, Seventeen"
-    else:
+    elif thm == 1:
         if gen == 0:
             var = "Do you know who is she? PRESS ME to read more! "
             maxindex = encode.hfemale()
@@ -771,8 +771,8 @@ God of Mischief and brother to Thor, Loki's tricks and schemes wreak havoc acros
 Loki, Prince of Asgard, Odinson, rightful heir of Jotunheim, and God of Mischief, is burdened with glorious purpose. 
 His desire to be a king drives him to sow chaos in Asgard."""
 
-    lbl.config(text=var)
 
+    lbl.config(text=var)
     showresult.pack(side=LEFT)
 
 def pop():
