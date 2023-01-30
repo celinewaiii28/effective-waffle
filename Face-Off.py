@@ -51,7 +51,7 @@ def choose_theme(m):
 def choose_gender(m):
     global lbl, thm, gen
     gen = m  
-    var = "Press button to activate the Camera. "
+    var = "Press button to activate the Camera."
     lbl.config(text=var)
 
     gen1.destroy()
