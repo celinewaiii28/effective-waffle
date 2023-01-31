@@ -14,15 +14,15 @@ for i in range(17): #loop the file in the folder
     kpopMale.append(toencode2)
 
 heroFemale = []
-for i in range (20):
+for i in range (10):
     fromfolderherof = face_recognition.load_image_file("image/herof/image0" + str(i) + ".png")
     toencode3 = face_recognition.face_encodings(fromfolderherof)
     heroFemale.append(toencode3)
 
 heroMale = []
-for i in range (10):
+for i in range (20):
     fromfolderherom = face_recognition.load_image_file("image/herom/image0" + str(i) + ".png")
-    toencode4 = face_recognition.face_encodings(fromfolderherof)
+    toencode4 = face_recognition.face_encodings(fromfolderherom)
     heroMale.append(toencode4)
 
 #kpop female

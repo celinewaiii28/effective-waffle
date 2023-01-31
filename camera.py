@@ -41,9 +41,9 @@ while True:
         mirror= cv2.flip(frame1,1)    
     
      #to draw a rectangle around the face
-        #for(x, y, w, h) in faces:
-             #text = "Face33 Detected" 
-             #cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+        for(x, y, w, h) in faces:
+             text = "Face33 Detected" 
+             cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
         
      
         # display the text on the image

@@ -7,7 +7,6 @@ from stupidArtnet import StupidArtnet
 import time
 import pygame
 import cv2
-import speech_recognition as s
 
 target_ip = '192.168.1.80'
 universe = 0         
@@ -83,15 +82,22 @@ def takepic():
 
     cam.destroy()
     restartbtn.pack()
-
+    #showresult.pack()
     pygame.mixer.Sound.stop(bg_sound)
     pygame.mixer.Sound.play(cam_sound)
+
+""" def failed():
+    global lbl, var
+    var = "Results failed to show. Please try again."
+    lbl.config(text=var)
+    cam.destroy()
+    restartbtn.pack()  """
     
 def instruct():
   pygame.mixer.Sound.play(instruct_sound)
 
 def result():
-    global lbl, thm, gen, resultIMG, face
+    global lbl, thm, gen, resultIMG, face, var
 
     img = (Image.open("saved_img.png"))
     resize = img.resize((500,600))
@@ -103,78 +109,96 @@ def result():
     
     if thm == 0:
         if gen == 0:
-            var = "Theme is Kpop. Gender is Female"
             maxindex = encode.kfemale()
-            resultIMG = ImageTk.PhotoImage(Image.open("image/kpopf/image0" + str(maxindex) + ".png"))
-            showresult = Label(frame2, image=resultIMG)
+            if maxindex == 13:
+                var = "Results failed to show. Please try again."
+                cam.destroy()
+            else:
+                var = "Theme is Kpop. Gender is Female"
+                resultIMG = ImageTk.PhotoImage(Image.open("image/kpopf/image0" + str(maxindex) + ".png"))
+                showresult.config(image=resultIMG)
 
-            if maxindex == 0: 
-                pygame.mixer.Sound.play(twice_sound)
-            elif maxindex == 1: 
-                pygame.mixer.Sound.play(twice_sound)
-            elif maxindex == 3: 
-                pygame.mixer.Sound.play(twice_sound)
-            elif maxindex == 7: 
-                pygame.mixer.Sound.play(twice_sound)
-            elif maxindex == 2: 
-                pygame.mixer.Sound.play(bp_sound)
-            elif maxindex == 9: 
-                pygame.mixer.Sound.play(bp_sound)
-            elif maxindex == 10: 
-                pygame.mixer.Sound.play(bp_sound)
-            elif maxindex == 11: 
-                pygame.mixer.Sound.play(bp_sound)
-            else: 
-                pygame.mixer.Sound.play(gidle_sound)
+                if maxindex == 0: 
+                    pygame.mixer.Sound.play(twice_sound)
+                elif maxindex == 1: 
+                    pygame.mixer.Sound.play(twice_sound)
+                elif maxindex == 3: 
+                    pygame.mixer.Sound.play(twice_sound)
+                elif maxindex == 7: 
+                    pygame.mixer.Sound.play(twice_sound)
+                elif maxindex == 2: 
+                    pygame.mixer.Sound.play(bp_sound)
+                elif maxindex == 9: 
+                    pygame.mixer.Sound.play(bp_sound)
+                elif maxindex == 10: 
+                    pygame.mixer.Sound.play(bp_sound)
+                elif maxindex == 11: 
+                    pygame.mixer.Sound.play(bp_sound)
+                else: 
+                    pygame.mixer.Sound.play(gidle_sound)
         else:
-            var = "Theme is Kpop. Gender is Male"
             maxindex = encode.kmale()
-            resultIMG = ImageTk.PhotoImage(Image.open("image/kpopm/image0" + str(maxindex) + ".png"))
-            showresult = Label(frame2, image=resultIMG)
+            if maxindex == 13:
+                var = "Results failed to show. Please try again."
+                cam.destroy()
+            else:
+                var = "Theme is Kpop. Gender is Male"
+                resultIMG = ImageTk.PhotoImage(Image.open("image/kpopm/image0" + str(maxindex) + ".png"))
+                showresult.config(image=resultIMG)
 
-            if maxindex == 0: 
-                pygame.mixer.Sound.play(bts_sound)
-            elif maxindex == 1: 
-                pygame.mixer.Sound.play(bts_sound)
-            elif maxindex == 2: 
-                pygame.mixer.Sound.play(bts_sound)
-            elif maxindex == 3: 
-                pygame.mixer.Sound.play(bts_sound)
-            elif maxindex == 6: 
-                pygame.mixer.Sound.play(bts_sound)
-            else: 
-                pygame.mixer.Sound.play(seven_sound)
-    else:
+                if maxindex == 0: 
+                    pygame.mixer.Sound.play(bts_sound)
+                elif maxindex == 1: 
+                    pygame.mixer.Sound.play(bts_sound)
+                elif maxindex == 2: 
+                    pygame.mixer.Sound.play(bts_sound)
+                elif maxindex == 3: 
+                    pygame.mixer.Sound.play(bts_sound)
+                elif maxindex == 6: 
+                    pygame.mixer.Sound.play(bts_sound)
+                else: 
+                    pygame.mixer.Sound.play(seven_sound)
+    elif thm ==1:
         if gen == 0:
-            var = "Theme is Marvel & DC. Gender is Female"
             maxindex = encode.hfemale()
-            resultIMG = ImageTk.PhotoImage(Image.open("image/herof/image0" + str(maxindex) + ".png"))
-            showresult = Label(frame2, image=resultIMG)
+            if maxindex == 13:
+                var = "Results failed to show. Please try again."
+                cam.destroy()
+            else:
+                var = "Theme is Marvel & DC. Gender is Female"
+                resultIMG = ImageTk.PhotoImage(Image.open("image/herof/image0" + str(maxindex) + ".png"))
+                showresult.config(image=resultIMG)
 
-            if maxindex == 2: 
-                pygame.mixer.Sound.play(dc_sound)
-            elif maxindex == 4: 
-                pygame.mixer.Sound.play(dc_sound)
-            else: 
-                pygame.mixer.Sound.play(marvel_sound)
+                if maxindex == 2: 
+                    pygame.mixer.Sound.play(dc_sound)
+                elif maxindex == 4: 
+                    pygame.mixer.Sound.play(dc_sound)
+                else: 
+                    pygame.mixer.Sound.play(marvel_sound)
         else:
-            var = "Theme is Marvel & DC. Gender is Male"
             maxindex = encode.hmale()
-            resultIMG = ImageTk.PhotoImage(Image.open("image/herom/image0" + str(maxindex) + ".png"))
-            showresult = Label(frame2, image=resultIMG)
+            if maxindex == 13:
+                var = "Results failed to show. Please try again."
+                cam.destroy()
+            else:
+                var = "Theme is Marvel & DC. Gender is Male"
+                resultIMG = ImageTk.PhotoImage(Image.open("image/herom/image0" + str(maxindex) + ".png"))
+                showresult.config(image=resultIMG)
 
-            if maxindex == 1: 
-                pygame.mixer.Sound.play(dc_sound)
-            elif maxindex == 2: 
-                pygame.mixer.Sound.play(dc_sound)
-            elif maxindex == 6: 
-                pygame.mixer.Sound.play(dc_sound)
-            elif maxindex == 9: 
-                pygame.mixer.Sound.play(dc_sound)
-            elif maxindex == 12: 
-                pygame.mixer.Sound.play(dc_sound)
-            else: 
-                pygame.mixer.Sound.play(marvel_sound)
+                if maxindex == 1: 
+                    pygame.mixer.Sound.play(dc_sound)
+                elif maxindex == 2: 
+                    pygame.mixer.Sound.play(dc_sound)
+                elif maxindex == 6: 
+                    pygame.mixer.Sound.play(dc_sound)
+                elif maxindex == 9: 
+                    pygame.mixer.Sound.play(dc_sound)
+                elif maxindex == 12: 
+                    pygame.mixer.Sound.play(dc_sound)
+                else: 
+                    pygame.mixer.Sound.play(marvel_sound)
+    
+
 
     lbl.config(text=var)
 
@@ -206,21 +230,8 @@ btnfont = ("Courier", 20)  #Fixedsys
 lbl = Label(topframe, text=var, font=title)
 lbl.pack()
 
-# themebg = PhotoImage(file="theme.png")
-# bg1 = Label(main, image=themebg)
-# bg1.pack()
-
-
-
-#KEYBOARD BINDING
-#main.bind('<d>', lambda event : choose_themeBind())
-#KPOP
-
-
 kpop_bind = main.bind('<a>', lambda m=0:choose_themeBind(m))
 Kpop_bind = ()
-# if kpop_bind == TRUE:
-#      print("hello u chose kpop")
 
 #MARVEL
 hero_bind = main.bind('<d>', lambda m=1:choose_themeBind(m))
@@ -245,6 +256,8 @@ gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_ge
 cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()])
 
 restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart)
+resultIMG = ''
+showresult = Label(frame2, image=resultIMG)
 
 pygame.init()
 bg_sound = pygame.mixer.Sound("soundtrack/bgmusic.wav")

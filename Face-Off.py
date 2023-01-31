@@ -23,6 +23,8 @@ def lightup():
         time.sleep(.1)
         a.start()
         a.show()
+        a.stop
+        
 
 def start():
     global lbl
@@ -75,7 +77,7 @@ def instruct():
   pygame.mixer.Sound.play(instruct_sound)
 
 def result():
-    global lbl, thm, gen, resultIMG, face, grouptitle, content
+    global lbl, thm, gen, resultIMG, face, grouptitle, content, var
 
     img = (Image.open("saved_img.png"))
     resize = img.resize((500,600))
@@ -85,6 +87,7 @@ def result():
     showresized = Label(frame1, image=face)
     popup.pack()
     showresized.pack()
+    
 
     if thm == 0:
         if gen == 0:
@@ -771,6 +774,9 @@ God of Mischief and brother to Thor, Loki's tricks and schemes wreak havoc acros
 Loki, Prince of Asgard, Odinson, rightful heir of Jotunheim, and God of Mischief, is burdened with glorious purpose. 
 His desire to be a king drives him to sow chaos in Asgard."""
 
+    else: 
+        var = "Failed to show result. Please take again."
+        lbl.config(text=var)
 
     lbl.config(text=var)
     showresult.pack(side=LEFT)
@@ -783,12 +789,16 @@ def pop():
     Label(top, text=content, font=("Courier", 15)).pack()
 
 def restart():
+    #global a
+    #a.stop()
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
+
+
 main = Tk()
 main.title("Face-Off")
-# main.state('zoom')
+main.state('zoom')
 
 topframe = Frame(main) # for title and btns 
 topframe.pack()
@@ -807,10 +817,6 @@ btnfont = ("Courier", 20)  #Fixedsys
 
 lbl = Label(topframe, text=var, font=title)
 lbl.pack()
-
-# themebg = PhotoImage(file="theme.png")
-# bg1 = Label(main, image=themebg)
-# bg1.pack()
 
 
 #KEYBOARD BINDING
@@ -833,20 +839,20 @@ startbtn = Button(topframe, text="Start", font=btnfont, command=start, bg='#95bb
 startbtn.pack()
 
 
-theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m), bg='#f74949')
-theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m), bg='#fedc56')
+theme1 = Button(topframe, text="Kpop", font=btnfont, command=lambda m=0:choose_theme(m), bg='#b5dcdd')
+theme2 = Button(topframe, text="Marvel & DC", font=btnfont, command=lambda m=1:choose_theme(m), bg='#61aac5')
     
 
-gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct(),lightup()], bg='#f74949')
-gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct(),lightup()], bg='#fedc56')
+gen1 = Button(topframe, text="Female", font=btnfont, command=lambda m=0:[choose_gender(m),instruct(),lightup()], bg='#b5dcdd')
+gen2 = Button(topframe, text="Male", font=btnfont, command=lambda m=1:[choose_gender(m), instruct(),lightup()], bg='#61aac5')
 
 cam = Button(topframe, text="Camera", font=btnfont, command=lambda : [takepic(), result()], bg='#95bb72')
 
 grouptitle = ""
 content = ""
-popup = Button(topframe, text="Press Me", font=btnfont, command=pop , bg='#fedc56')
+popup = Button(topframe, text="Press Me", font=btnfont, command=pop , bg='#61aac5')
 
-restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart , bg='#f74949')
+restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart , bg='#b5dcdd')
 
 pygame.init()
 bg_sound = pygame.mixer.Sound("soundtrack/bgmusic.wav")
