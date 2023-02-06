@@ -18,7 +18,7 @@ def lightup():
 
     for x in range(20):
         for i in range(packet_size):
-            packet[i] = 45
+            packet[i] = 40
         a.set(packet)
         time.sleep(.1)
         a.start()
@@ -289,7 +289,7 @@ def result():
     """
         else:
             maxindex = encode.kmale()
-            if maxindex == 17:
+            if maxindex == 18:
                 var = "Results failed to show. Please try again."
                 cam.destroy()
             else: 
@@ -372,6 +372,17 @@ def result():
                 elif maxindex == 4: 
                     pygame.mixer.Sound.play(seven_sound)
                     grouptitle = "Pledis Entertainment, Seventeen"
+                    content = """Stage Name: Mingyu (민규)
+    Birth Name: Kim Mingyu (김민규)
+    Position: Lead Rapper, Face of the Group
+    Birthday: 06 April 1997
+    Sub-Unit: Hip-Hop Team
+
+    He was born in Anyang-si, Gyeonggi-do, South Korea.
+    He has a younger sister.
+    Education: Burim Middle School ('3); Seoul Broadcasting High School ('16); Dong-A Broadcasting Arts University (Broadcasting Entertainment Department KPop Major)
+    He got cast by Pledis in his 2nd year of middle school.
+    He was a trainee for 4 years."""
 
                 elif maxindex == 5: 
                     pygame.mixer.Sound.play(seven_sound)
@@ -463,6 +474,18 @@ def result():
                 elif maxindex == 12: 
                     pygame.mixer.Sound.play(seven_sound)
                     grouptitle = "Pledis Entertainment, Seventeen"
+                    content = """Stage Name: Seungkwan (승관)
+    Birth Name: Boo Seung Kwan (부승관)
+    Position: Main Vocalist
+    Birthday: 16 January 1998
+    Sub-Unit: Vocal Team; BOOSEOKSOON
+
+    He was born in Busan, but he lived in Jeju since he was little.
+    He has 2 older sisters: (Boo Jinseol and Boo Sojeong-who debuted as a singer in Oct 2020).
+    Education: Seoul Broadcasting High School ('16)
+    He was a trainee for 3 years and 2 months.
+    He was offered to join JYP but he rejected the offer.
+    He joined Pledis Entertainment in June 2012."""
 
                 elif maxindex == 13: 
                     pygame.mixer.Sound.play(seven_sound)
@@ -515,6 +538,19 @@ def result():
                 else: 
                     pygame.mixer.Sound.play(seven_sound)
                     grouptitle = "Pledis Entertainment, Seventeen"
+                    content = """Stage Name: Jun (준)
+    Birth Name: Wen Junhui (文俊辉)
+    Korean Name: Moon Jun Hwi (문준휘)
+    Position: Lead Dancer, Sub Vocalist
+    Birthday: June 10, 1996
+    Sub-Unit: Performance Team
+
+    He was born in Shenzhen, Guangdong China.
+    Jun was the second member to be introduced and formerly called, 'Jerry.'
+    His mother remarried when Jun was 8 (he actually played the matchmaker).
+    He has a younger brother (half-sibling), named Wen Fengjun (nicknamed Yangyang) who is 10 years younger than Jun.
+    Education: Buji Senior High School
+    He was a trainee for 2 years and 7 months."""
     elif thm == 1:
         if gen == 0:
             maxindex = encode.hfemale()
