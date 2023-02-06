@@ -289,7 +289,7 @@ def result():
     """
         else:
             maxindex = encode.kmale()
-            if maxindex == 17:
+            if maxindex == 18:
                 var = "Results failed to show. Please try again."
                 cam.destroy()
             else: 

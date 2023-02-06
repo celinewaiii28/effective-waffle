@@ -60,7 +60,7 @@ def kmale():
 
     buffer = []
     if face == []:
-        maxindex = 13
+        maxindex = 18
     else:
         for i in range(17):
             compare = face_recognition.compare_faces([dict[i]], face[0], tolerance=0.03)
