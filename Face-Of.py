@@ -55,6 +55,8 @@ def choose_gender(m):
     gen = m  
     var = "Press button to activate the Camera."
     lbl.config(text=var)
+    notes.pack()
+
 
     gen1.destroy()
     gen2.destroy()
@@ -68,6 +70,7 @@ def takepic():
     lbl.config(text=var)
 
     cam.destroy()
+    notes.grid_forget()
     restartbtn.pack()
 
     pygame.mixer.Sound.stop(bg_sound)
@@ -78,6 +81,8 @@ def instruct():
 
 def result():
     global lbl, thm, gen, resultIMG, face, grouptitle, content, var
+
+    notes.destroy()
 
     img = (Image.open("saved_img.png"))
     resize = img.resize((500,600))
@@ -868,6 +873,7 @@ title = ("Fixedsys", 40)  #Courier
 btnfont = ("Courier", 20)  #Fixedsys
 
 lbl = Label(topframe, text=var, font=title)
+notes = Label(topframe, text="Please remove your mask & glasses when taking picture.", font=btnfont)
 lbl.pack()
 
 
@@ -907,16 +913,16 @@ popup = Button(topframe, text="Press Me", font=btnfont, command=pop , bg='#61aac
 restartbtn = Button(topframe, text="Restart", font=btnfont, command=restart , bg='#b5dcdd')
 
 pygame.init()
-bg_sound = pygame.mixer.Sound("effective-waffle-Final/effective-waffle/soundtrack/bgmusic.wav")
-cam_sound = pygame.mixer.Sound("effective-waffle-Final/soundtrack/click.wav")
-bp_sound = pygame.mixer.Sound("effective-waffle/soundtrack/blackpink.wav")
-twice_sound = pygame.mixer.Sound("effective-waffle/soundtrack/twice.wav")
-gidle_sound = pygame.mixer.Sound("effective-waffle/soundtrack/.wav")
-bts_sound = pygame.mixer.Sound("effective-waffle/soundtrack/bts.wav")
-seven_sound = pygame.mixer.Sound("effective-waffle/soundtrack/seventeen.wav")
-dc_sound = pygame.mixer.Sound("effective-waffle/soundtrack/dc.wav")
-marvel_sound = pygame.mixer.Sound("effective-waffle/soundtrack/marvel.wav")
-instruct_sound = pygame.mixer.Sound("effective-waffle/soundtrack/instruct_camera.wav")
+bg_sound = pygame.mixer.Sound("soundtrack/bgmusic.wav")
+cam_sound = pygame.mixer.Sound("soundtrack/click.wav")
+bp_sound = pygame.mixer.Sound("soundtrack/blackpink.wav")
+twice_sound = pygame.mixer.Sound("soundtrack/twice.wav")
+gidle_sound = pygame.mixer.Sound("soundtrack/gidle.wav")
+bts_sound = pygame.mixer.Sound("soundtrack/bts.wav")
+seven_sound = pygame.mixer.Sound("soundtrack/seventeen.wav")
+dc_sound = pygame.mixer.Sound("soundtrack/dc.wav")
+marvel_sound = pygame.mixer.Sound("soundtrack/marvel.wav")
+instruct_sound = pygame.mixer.Sound("soundtrack/instruct_camera.wav")
 
 
 main.mainloop()
